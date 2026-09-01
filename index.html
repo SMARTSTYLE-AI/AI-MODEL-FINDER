@@ -13,7 +13,7 @@
         <a class="logo" onclick="location.reload()">ModelFinder.</a>
         <div class="nav-controls">
             <div class="nav-search">
-                <input type="text" id="stickySearchInput" placeholder="New search..." onkeydown="if(event.key === 'Enter') { document.getElementById('searchInput').value = this.value; findModels(); }">
+                <input type="text" id="stickySearchInput" data-i18n-placeholder="sticky_search" placeholder="New search..." onkeydown="if(event.key === 'Enter') { document.getElementById('searchInput').value = this.value; findModels(); }">
             </div>
             <div class="nav-icons">
                 <button class="icon-btn" onclick="toggleStackView()" id="stackNavBtn" data-i18n="nav_stack">My Stack (0)</button>
@@ -47,10 +47,10 @@
         </div>
         
         <div class="filter-pills">
-            <button class="pill" onclick="populateSearch('I need to generate photorealistic images')" data-i18n="pill_1">Image Gen</button>
-            <button class="pill" onclick="populateSearch('Local open source coding model')" data-i18n="pill_2">Local & Open Source</button>
-            <button class="pill" onclick="populateSearch('Advanced math and logical reasoning')" data-i18n="pill_3">Math & Logic</button>
-            <button class="pill" onclick="populateSearch('Cheap model for high volume text')" data-i18n="pill_4">Cost-Effective Bulk</button>
+            <button class="pill" onclick="populateSearchKey('pill_1_q')" data-i18n="pill_1">Image Gen</button>
+            <button class="pill" onclick="populateSearchKey('pill_2_q')" data-i18n="pill_2">Local & Open Source</button>
+            <button class="pill" onclick="populateSearchKey('pill_3_q')" data-i18n="pill_3">Math & Logic</button>
+            <button class="pill" onclick="populateSearchKey('pill_4_q')" data-i18n="pill_4">Cost-Effective Bulk</button>
         </div>
     </main>
 
@@ -122,9 +122,9 @@
         <div class="suggestion-box">
             <h4 data-i18n="err_sugg">Try searching for parameters like:</h4>
             <ul>
-                <li onclick="populateSearch('I need a model for writing C code')">"I need a model for writing C code"</li>
-                <li onclick="populateSearch('Open source math reasoning')">"Open source math reasoning"</li>
-                <li onclick="populateSearch('Photorealistic image generation')">"Photorealistic image generation"</li>
+                <li onclick="populateSearchKey('sugg_1_q')" data-i18n="sugg_1">"I need a model for writing C code"</li>
+                <li onclick="populateSearchKey('sugg_2_q')" data-i18n="sugg_2">"Open source math reasoning"</li>
+                <li onclick="populateSearchKey('sugg_3_q')" data-i18n="sugg_3">"Photorealistic image generation"</li>
             </ul>
         </div>
     </section>

@@ -117,6 +117,12 @@ function populateSearch(query) {
     findModels();
 }
 
+function populateSearchKey(key) {
+    const t = translations[currentLang] || translations['en'];
+    document.getElementById('searchInput').value = t[key] || translations['en'][key];
+    findModels();
+}
+
 function renderCard(model, isOptimal, isStackView = false) {
     const t = translations[currentLang] || translations['en'];
     const optimalClass = isOptimal ? 'is-optimal' : '';
@@ -138,7 +144,7 @@ function renderCard(model, isOptimal, isStackView = false) {
     const descStr = activeData.desc || model.desc;
 
     const freeText = t['badge_free'] ? t['badge_free'].split('/')[0].trim() : 'Free';
-    const displayCost = model.costString === 'Free' ? freeText : model.costString;
+    const displayCost = model.costString === 'Free' ? freeText : (model.id === 'midjourney-v6' ? (t['cost_sub'] || model.costString) : model.costString);
 
     return `
         <div class="card ${optimalClass}">
@@ -168,7 +174,7 @@ function updateTableCosts() {
 
     comparisonBody.innerHTML = currentTableModels.map(m => {
         const isOverallBest = (m === currentBestPaid) || (m === currentBestFree);
-        let calculatedCost = m.costString === 'Free' ? freeText : m.costString;
+        let calculatedCost = m.costString === 'Free' ? freeText : (m.id === 'midjourney-v6' ? (t['cost_sub'] || m.costString) : m.costString);
 
         if (m.pricePerM !== null) {
             if (m.pricePerM === 0) calculatedCost = freeText;
@@ -249,7 +255,7 @@ function findModels(skipScroll = false) {
         const overallWinner = wantsFree ? currentBestFree : currentBestPaid;
         const t = translations[currentLang] || translations['en'];
 
-        document.getElementById('verdictTitle').innerHTML = `${currentBestPaid.name} <span style="font-size:1.25rem;">VS</span> ${currentBestFree.name}`;
+        document.getElementById('verdictTitle').innerHTML = `${currentBestPaid.name} <span style="font-size:1.25rem;">${t['vs']}</span> ${currentBestFree.name}`;
 
         const verdictMsg = t['winner_prompt'] || 'Overall Winner for your prompt';
         const overallData = getModelData(overallWinner, currentLang);
