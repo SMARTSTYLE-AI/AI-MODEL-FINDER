@@ -186,6 +186,27 @@
         <div class="grid" id="stackGrid"></div>
     </section>
 
+    <section class="resources-section section-container" id="resourcesSection">
+        <h2 class="results-main-header" data-i18n="res_title">AI Resource Hub</h2>
+        <p style="color: var(--text-muted); margin-bottom: 3rem;" data-i18n="res_desc">In-depth guides, model reviews, and architectural documentation.</p>
+
+        <article class="blog-post">
+            <div class="blog-meta">Deep Dive • 5 Min Read</div>
+            <h3>Understanding Context Windows: The Shift to Million-Token Memory</h3>
+            <p>In the early days of LLMs, context windows were severely limited. A model could remember a few pages of text before "forgetting" the beginning of the conversation. Today, models like Gemini 3.1 Pro and Llama 4 Scout support context windows spanning over a million tokens. But what does this actually mean for enterprise architecture?</p>
+            <p>A "token" roughly equates to a fraction of a word. A 1-million-token window allows developers to upload entire software code repositories, hundreds of PDF documents, or hour-long video transcripts directly into a single prompt. This eliminates the heavy reliance on complex RAG (Retrieval-Augmented Generation) architectures for many standard data-extraction use cases.</p>
+            <p>However, larger context windows come with a trade-off: latency and compute cost. While open-source solutions provide free inference, processing millions of tokens locally requires massive VRAM arrays. Commercial APIs charge per token, meaning a fully loaded 2M-token prompt can become expensive. The optimal strategy is a hybrid approach: use high-context commercial models for initial data structuring, and smaller, highly-tuned open-source MoE (Mixture of Experts) models for high-throughput, repetitive tasks.</p>
+        </article>
+
+        <article class="blog-post">
+            <div class="blog-meta">Comparative Guide • 7 Min Read</div>
+            <h3>Open-Source vs. Proprietary: The 2026 Landscape</h3>
+            <p>The gap between open-source weights and proprietary APIs has functionally closed for general reasoning tasks. DeepSeek-V4-Pro and Meta's Llama 4 Scout routinely trade blows with commercial counterparts on standard SWE-bench and GPQA evaluations. The decision of which to deploy now hinges on infrastructure rather than raw capability.</p>
+            <p>Proprietary APIs excel in "zero-setup" environments. They offer integrated multimodal capabilities—such as native audio and vision processing—without requiring developers to stitch together multiple distinct local models. They serve as the backbone of rapid prototyping and lightweight startups looking to deploy to production immediately.</p>
+            <p>Conversely, open-source models are the mandatory choice for enterprises dealing with strict data privacy laws. Deploying local models ensures that proprietary codebase data never leaves the internal network. Furthermore, while the upfront cost of GPU hardware is high, the elimination of per-token API fees results in massive operational savings for automated, agentic pipelines.</p>
+        </article>
+    </section>
+
     <footer>
         <div class="footer-main">&copy; 2026 ModelFinder. Minimalist AI Architecture.</div>
         <div class="footer-links">

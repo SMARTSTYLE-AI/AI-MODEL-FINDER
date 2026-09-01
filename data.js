@@ -13,7 +13,7 @@ const translations = {
         badge_paid: "Paid / API", badge_free: "Free / Self-Hosted", verdict_header: "🏆 The Verdict", vs: "vs",
         comp_title: "Model Comparison Matrix", comp_est: "Estimate Tokens:", th_model: "Model", th_type: "Type", th_spec: "Primary Specialty", th_ctx: "Context Window", th_cost: "Est. Cost",
         stack_title: "Your Custom AI Stack", stack_desc: "These are the models you've bookmarked for your architecture.", disclaimer: "Disclaimer: Model availability, pricing, token limits, and capabilities are subject to rapid change. ModelFinder acts as an independent recommendation engine.",
-        unstack: "✕ Unstack", optimal_pick: "★ Optimal Pick", empty_stack: "Your stack is currently empty. Bookmark models to save them here.", tokens: "tokens", winner_prompt: "Overall Winner for your prompt", cost_sub: "Sub ($10/mo)", footer_privacy: "Privacy Policy", footer_about: "About Us", footer_contact: "Contact Us"
+        unstack: "✕ Unstack", optimal_pick: "★ Optimal Pick", empty_stack: "Your stack is currently empty. Bookmark models to save them here.", tokens: "tokens", winner_prompt: "Overall Winner for your prompt", cost_sub: "Sub ($10/mo)", footer_privacy: "Privacy Policy", footer_about: "About Us", footer_contact: "Contact Us", res_title: "AI Resource Hub", res_desc: "In-depth guides, model reviews, and architectural documentation."
     },
     es: {
         nav_stack: "Mi Pila", hero_title: "El Modelo de IA Correcto.<br>Ahora Mismo.", hero_tagline: "Navega por el panorama de la IA. Describe tu caso de uso y descubre al instante el modelo base perfecto.",
@@ -29,7 +29,7 @@ const translations = {
         badge_paid: "De Pago / API", badge_free: "Gratis / Alojamiento Propio", verdict_header: "🏆 El Veredicto", vs: "vs",
         comp_title: "Matriz de Comparación", comp_est: "Estimar Tokens:", th_model: "Modelo", th_type: "Tipo", th_spec: "Especialidad Principal", th_ctx: "Contexto", th_cost: "Costo Est.",
         stack_title: "Tu Pila de IA", stack_desc: "Estos son los modelos que has guardado para tu arquitectura.", disclaimer: "Descargo de responsabilidad: Precios y capacidades sujetos a cambios. ModelFinder es independiente.",
-        unstack: "✕ Quitar", optimal_pick: "★ Selección Óptima", empty_stack: "Tu pila está vacía. Guarda modelos para verlos aquí.", tokens: "fichas", winner_prompt: "Ganador general para tu consulta", cost_sub: "Suscripción ($10/mes)", footer_privacy: "Política de Privacidad", footer_about: "Acerca de", footer_contact: "Contacto"
+        unstack: "✕ Quitar", optimal_pick: "★ Selección Óptima", empty_stack: "Tu pila está vacía. Guarda modelos para verlos aquí.", tokens: "fichas", winner_prompt: "Ganador general para tu consulta", cost_sub: "Suscripción ($10/mes)", footer_privacy: "Política de Privacidad", footer_about: "Acerca de", footer_contact: "Contacto", res_title: "Centro de Recursos de IA", res_desc: "Guías detalladas, reseñas de modelos y documentación arquitectónica."
     },
     fr: {
         nav_stack: "Ma Pile", hero_title: "Le Bon Modèle d'IA.<br>Maintenant.", hero_tagline: "Naviguez dans le paysage de l'IA. Décrivez votre cas d'utilisation et découvrez instantanément le modèle parfait.",
@@ -45,7 +45,7 @@ const translations = {
         badge_paid: "Payant / API", badge_free: "Gratuit / Auto-Hébergé", verdict_header: "🏆 Le Verdict", vs: "contre",
         comp_title: "Matrice de Comparaison", comp_est: "Estimer les Jetons :", th_model: "Modèle", th_type: "Type", th_spec: "Spécialité", th_ctx: "Contexte", th_cost: "Coût Est.",
         stack_title: "Votre Pile d'IA", stack_desc: "Voici les modèles que vous avez enregistrés.", disclaimer: "Avertissement : Les prix et capacités peuvent changer rapidement. ModelFinder est indépendant.",
-        unstack: "✕ Retirer", optimal_pick: "★ Choix Optimal", empty_stack: "Votre pile est vide. Enregistrez des modèles ici.", tokens: "jetons", winner_prompt: "Gagnant global pour votre requête", cost_sub: "Abonnement (10$/mois)", footer_privacy: "Politique de Confidentialité", footer_about: "À Propos", footer_contact: "Nous Contacter"
+        unstack: "✕ Retirer", optimal_pick: "★ Choix Optimal", empty_stack: "Votre pile est vide. Enregistrez des modèles ici.", tokens: "jetons", winner_prompt: "Gagnant global pour votre requête", cost_sub: "Abonnement (10$/mois)", footer_privacy: "Politique de Confidentialité", footer_about: "À Propos", footer_contact: "Nous Contacter", res_title: "Centre de Ressources IA", res_desc: "Guides approfondis, examens de modèles et documentation architecturale."
     },
     de: {
         nav_stack: "Mein Stack", hero_title: "Das Richtige KI-Modell.<br>Genau Jetzt.", hero_tagline: "Navigieren Sie durch die KI-Landschaft. Beschreiben Sie Ihren Anwendungsfall und finden Sie das perfekte Modell.",
@@ -61,7 +61,7 @@ const translations = {
         badge_paid: "Bezahlt / API", badge_free: "Kostenlos / Self-Hosted", verdict_header: "🏆 Das Urteil", vs: "vs",
         comp_title: "Modell-Vergleichsmatrix", comp_est: "Tokens Schätzen:", th_model: "Modell", th_type: "Typ", th_spec: "Spezialität", th_ctx: "Kontext", th_cost: "Kosten",
         stack_title: "Ihr KI-Stack", stack_desc: "Die Modelle, die Sie gespeichert haben.", disclaimer: "Haftungsausschluss: Preise können sich ändern. ModelFinder ist unabhängig.",
-        unstack: "✕ Entfernen", optimal_pick: "★ Optimale Wahl", empty_stack: "Ihr Stack ist leer.", tokens: "Token", winner_prompt: "Gesamtsieger für Ihre Anfrage", cost_sub: "Abo (10$/Monat)", footer_privacy: "Datenschutz", footer_about: "Über Uns", footer_contact: "Kontaktieren Sie Uns"
+        unstack: "✕ Entfernen", optimal_pick: "★ Optimale Wahl", empty_stack: "Ihr Stack ist leer.", tokens: "Token", winner_prompt: "Gesamtsieger für Ihre Anfrage", cost_sub: "Abo (10$/Monat)", footer_privacy: "Datenschutz", footer_about: "Über Uns", footer_contact: "Kontaktieren Sie Uns", res_title: "KI-Ressourcen-Hub", res_desc: "Ausführliche Anleitungen, Modellbewertungen und Architekturdokumentation."
     },
     hi: {
         nav_stack: "मेरा स्टैक", hero_title: "सही AI मॉडल.<br>अभी.", hero_tagline: "जटिल AI परिदृश्य को नेविगेट करें। अपना उपयोग मामला बताएं और एकदम सही मॉडल खोजें।",
@@ -77,7 +77,7 @@ const translations = {
         badge_paid: "भुगतान / API", badge_free: "मुफ्त / सेल्फ-होस्टेड", verdict_header: "🏆 हमारा निर्णय", vs: "बनाम",
         comp_title: "मॉडल तुलना मैट्रिक्स", comp_est: "टोकन का अनुमान:", th_model: "मॉडल", th_type: "प्रकार", th_spec: "विशेषता", th_ctx: "संदर्भ", th_cost: "लागत",
         stack_title: "आपका कस्टम AI स्टैक", stack_desc: "ये वो मॉडल हैं जिन्हें आपने बुकमार्क किया है।", disclaimer: "अस्वीकरण: मूल्य निर्धारण तेजी से बदल सकते हैं।",
-        unstack: "✕ हटाएं", optimal_pick: "★ सर्वोत्तम विकल्प", empty_stack: "आपका स्टैक अभी खाली है।", tokens: "टोकन", winner_prompt: "आपके प्रॉम्प्ट के लिए समग्र विजेता", cost_sub: "सदस्यता ($10/माह)", footer_privacy: "गोपनीयता नीति", footer_about: "हमारे बारे में", footer_contact: "हमसे संपर्क करें"
+        unstack: "✕ हटाएं", optimal_pick: "★ सर्वोत्तम विकल्प", empty_stack: "आपका स्टैक अभी खाली है।", tokens: "टोकन", winner_prompt: "आपके प्रॉम्प्ट के लिए समग्र विजेता", cost_sub: "सदस्यता ($10/माह)", footer_privacy: "गोपनीयता नीति", footer_about: "हमारे बारे में", footer_contact: "हमसे संपर्क करें", res_title: "AI संसाधन केंद्र", res_desc: "गहराई गाइड्स, मॉडल समीक्षा और आर्किटेक्चरल डॉकुमेंटेशन."
     },
 
     zh: {
@@ -94,7 +94,7 @@ const translations = {
         badge_paid: "付费 / API", badge_free: "免费 / 自托管", verdict_header: "🏆 最终结论", vs: "对决",
         comp_title: "模型比较矩阵", comp_est: "估算 Tokens:", th_model: "模型", th_type: "类型", th_spec: "主要特长", th_ctx: "上下文", th_cost: "成本",
         stack_title: "您的自定义 AI 架构", stack_desc: "这些是您已收藏的模型。", disclaimer: "免责声明：定价可能会快速变化。",
-        unstack: "✕ 移除", optimal_pick: "★ 最佳选择", empty_stack: "您的架构目前为空。", tokens: "tokens", winner_prompt: "您提示词的最终赢家", cost_sub: "订阅 ($10/月)", footer_privacy: "隐私政策", footer_about: "关于我们", footer_contact: "联系我们"
+        unstack: "✕ 移除", optimal_pick: "★ 最佳选择", empty_stack: "您的架构目前为空。", tokens: "tokens", winner_prompt: "您提示词的最终赢家", cost_sub: "订阅 ($10/月)", footer_privacy: "隐私政策", footer_about: "关于我们", footer_contact: "联系我们", res_title: "AI 资源中心", res_desc: "深入式指南、模型评了和架构文档。"
     },
     ja: {
         nav_stack: "マイスタック", hero_title: "最適なAIモデルを.<br>今すぐに.", hero_tagline: "ユースケースを説明して、最適な基盤モデルをすぐに見つけましょう。",
@@ -110,7 +110,7 @@ const translations = {
         badge_paid: "有料 / API", badge_free: "無料 / セルフホスト", verdict_header: "🏆 結論", vs: "対",
         comp_title: "比較マトリックス", comp_est: "トークン見積:", th_model: "モデル", th_type: "タイプ", th_spec: "特長", th_ctx: "コンテキスト", th_cost: "コスト",
         stack_title: "カスタムAIスタック", stack_desc: "ブックマークしたモデルです。", disclaimer: "免責事項：価格は変更される場合があります。",
-        unstack: "✕ 削除", optimal_pick: "★ 最適な選択", empty_stack: "スタックは現在空です。", tokens: "トークン", winner_prompt: "あなたのプロンプトの総合勝者", cost_sub: "サブスク ($10/月)", footer_privacy: "プライバシーポリシー", footer_about: "概要", footer_contact: "お問い合わせ"
+        unstack: "✕ 削除", optimal_pick: "★ 最適な選択", empty_stack: "スタックは現在空です。", tokens: "トークン", winner_prompt: "あなたのプロンプトの総合勝者", cost_sub: "サブスク ($10/月)", footer_privacy: "プライバシーポリシー", footer_about: "概要", footer_contact: "お問い合わせ", res_title: "AIリソースハブ", res_desc: "詳入、モデルレビュー、アーキテクチャドキュメント。"
     },
     pt: {
         nav_stack: "Minha Stack", hero_title: "O Modelo de IA Certo.<br>Agora Mesmo.", hero_tagline: "Descreva seu caso de uso e descubra o modelo perfeito.",
@@ -126,7 +126,7 @@ const translations = {
         badge_paid: "Pago / API", badge_free: "Grátis / Local", verdict_header: "🏆 O Veredito", vs: "vs",
         comp_title: "Matriz de Comparação", comp_est: "Estimar Tokens:", th_model: "Modelo", th_type: "Tipo", th_spec: "Especialidade", th_ctx: "Contexto", th_cost: "Custo",
         stack_title: "Sua Stack de IA", stack_desc: "Estes são os modelos favoritados.", disclaimer: "Aviso Legal: Preços podem mudar.",
-        unstack: "✕ Remover", optimal_pick: "★ Escolha Ideal", empty_stack: "Sua stack está vazia.", tokens: "tokens", winner_prompt: "Vencedor geral para seu prompt", cost_sub: "Assinatura ($10/mês)", footer_privacy: "Política de Privacidade", footer_about: "Sobre Nós", footer_contact: "Entre em Contato"
+        unstack: "✕ Remover", optimal_pick: "★ Escolha Ideal", empty_stack: "Sua stack está vazia.", tokens: "tokens", winner_prompt: "Vencedor geral para seu prompt", cost_sub: "Assinatura ($10/mês)", footer_privacy: "Política de Privacidade", footer_about: "Sobre Nós", footer_contact: "Entre em Contato", res_title: "Hub de Recursos de IA", res_desc: "Guias aprofundados, avaliações de modelos e documentação arquitetural."
     },
 
     ru: {
@@ -143,7 +143,7 @@ const translations = {
         badge_paid: "Платные / API", badge_free: "Бесплатные / Локальные", verdict_header: "🏆 Вердикт", vs: "против",
         comp_title: "Матрица Сравнения", comp_est: "Оценка Токенов:", th_model: "Модель", th_type: "Тип", th_spec: "Специализация", th_ctx: "Контекст", th_cost: "Стоимость",
         stack_title: "Ваш ИИ Стек", stack_desc: "Это сохраненные модели.", disclaimer: "Отказ от ответственности: Цены могут меняться.",
-        unstack: "✕ Убрать", optimal_pick: "★ Лучший Выбор", empty_stack: "Ваш стек пуст.", tokens: "токенов", winner_prompt: "Лучший выбор для вашего запроса", cost_sub: "Подписка ($10/мес)", footer_privacy: "Политика конфиденциальности", footer_about: "О нас", footer_contact: "Свяжитесь с нами"
+        unstack: "✕ Убрать", optimal_pick: "★ Лучший Выбор", empty_stack: "Ваш стек пуст.", tokens: "токенов", winner_prompt: "Лучший выбор для вашего запроса", cost_sub: "Подписка ($10/мес)", footer_privacy: "Политика конфиденциальности", footer_about: "О нас", footer_contact: "Свяжитесь с нами", res_title: "Центр ресурсов ИИ", res_desc: "Подробные руководства, обзоры моделей и архитектурная документация."
     },
     ar: {
         nav_stack: "مجموعتي", hero_title: "نموذج الذكاء الاصطناعي المناسب.<br>الآن.", hero_tagline: "صِف حالة الاستخدام الخاصة بك واكتشف النموذج المثالي.",
@@ -159,7 +159,7 @@ const translations = {
         badge_paid: "مدفوع / API", badge_free: "مجاني", verdict_header: "🏆 الحكم", vs: "ضد",
         comp_title: "مصفوفة المقارنة", comp_est: "تقدير الرموز:", th_model: "النموذج", th_type: "النوع", th_spec: "التخصص", th_ctx: "السياق", th_cost: "التكلفة",
         stack_title: "مجموعة الذكاء الاصطناعي", stack_desc: "هذه هي النماذج المحفوظة.", disclaimer: "إخلاء المسؤولية: الأسعار قابلة للتغيير.",
-        unstack: "✕ إزالة", optimal_pick: "★ الاختيار الأمثل", empty_stack: "مجموعتك فارغة حاليًا.", tokens: "رموز", winner_prompt: "الفائز الشامل لطلبك", cost_sub: "اشتراك ($10/شهر)", footer_privacy: "سياسة الخصوصية", footer_about: "عن النموذج", footer_contact: "اتصل بنا"
+        unstack: "✕ إزالة", optimal_pick: "★ الاختيار الأمثل", empty_stack: "مجموعتك فارغة حاليًا.", tokens: "رموز", winner_prompt: "الفائز الشامل لطلبك", cost_sub: "اشتراك ($10/شهر)", footer_privacy: "سياسة الخصوصية", footer_about: "عن النموذج", footer_contact: "اتصل بنا", res_title: "مركز موارد الذاكاء الاصطناعي", res_desc: "أدلة معمقة، واستعراضات النماذج، وبطاقة معمارية."
     }
 };
 

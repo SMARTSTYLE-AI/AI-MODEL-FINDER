@@ -110,6 +110,13 @@ function hideAllSections() {
     document.getElementById('errorSection').style.display = 'none';
     document.getElementById('resultsSection').style.display = 'none';
     document.getElementById('stackSection').style.display = 'none';
+    document.getElementById('resourcesSection').style.display = 'none';
+}
+
+function toggleResourcesView() {
+    hideAllSections();
+    document.getElementById('resourcesSection').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function populateSearch(query) {
