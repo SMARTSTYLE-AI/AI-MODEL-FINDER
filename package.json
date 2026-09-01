@@ -1,7 +1,9 @@
 {
   "name": "ai-model-finder",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "build": "echo 'No build step required'"
+    "build": "echo 'Static site: no build required'",
+    "dev": "npx serve ."
   }
 }
