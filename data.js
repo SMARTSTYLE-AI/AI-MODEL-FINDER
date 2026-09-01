@@ -31,7 +31,6 @@ const translations = {
         stack_title: "Tu Pila de IA", stack_desc: "Estos son los modelos que has guardado para tu arquitectura.", disclaimer: "Descargo de responsabilidad: Precios y capacidades sujetos a cambios. ModelFinder es independiente.",
         unstack: "✕ Quitar", optimal_pick: "★ Selección Óptima", empty_stack: "Tu pila está vacía. Guarda modelos para verlos aquí.", tokens: "fichas", winner_prompt: "Ganador general para tu consulta", cost_sub: "Suscripción ($10/mes)"
     },
-    },
     fr: {
         nav_stack: "Ma Pile", hero_title: "Le Bon Modèle d'IA.<br>Maintenant.", hero_tagline: "Naviguez dans le paysage de l'IA. Décrivez votre cas d'utilisation et découvrez instantanément le modèle parfait.",
         search_placeholder: "ex: 'aide au codage', 'images photoréalistes', 'mathématiques'...", btn_search: "Trouver un Modèle", sticky_search: "Nouvelle recherche...",
@@ -47,7 +46,6 @@ const translations = {
         comp_title: "Matrice de Comparaison", comp_est: "Estimer les Jetons :", th_model: "Modèle", th_type: "Type", th_spec: "Spécialité", th_ctx: "Contexte", th_cost: "Coût Est.",
         stack_title: "Votre Pile d'IA", stack_desc: "Voici les modèles que vous avez enregistrés.", disclaimer: "Avertissement : Les prix et capacités peuvent changer rapidement. ModelFinder est indépendant.",
         unstack: "✕ Retirer", optimal_pick: "★ Choix Optimal", empty_stack: "Votre pile est vide. Enregistrez des modèles ici.", tokens: "jetons", winner_prompt: "Gagnant global pour votre requête", cost_sub: "Abonnement (10$/mois)"
-    },
     },
     de: {
         nav_stack: "Mein Stack", hero_title: "Das Richtige KI-Modell.<br>Genau Jetzt.", hero_tagline: "Navigieren Sie durch die KI-Landschaft. Beschreiben Sie Ihren Anwendungsfall und finden Sie das perfekte Modell.",
@@ -65,7 +63,6 @@ const translations = {
         stack_title: "Ihr KI-Stack", stack_desc: "Die Modelle, die Sie gespeichert haben.", disclaimer: "Haftungsausschluss: Preise können sich ändern. ModelFinder ist unabhängig.",
         unstack: "✕ Entfernen", optimal_pick: "★ Optimale Wahl", empty_stack: "Ihr Stack ist leer.", tokens: "Token", winner_prompt: "Gesamtsieger für Ihre Anfrage", cost_sub: "Abo (10$/Monat)"
     },
-    },
     hi: {
         nav_stack: "मेरा स्टैक", hero_title: "सही AI मॉडल.<br>अभी.", hero_tagline: "जटिल AI परिदृश्य को नेविगेट करें। अपना उपयोग मामला बताएं और एकदम सही मॉडल खोजें।",
         search_placeholder: "उदा., 'कोडिंग सहायक', 'फोटोरियलिस्टिक चित्र', 'गणित'...", btn_search: "मॉडल खोजें", sticky_search: "नई खोज...",
@@ -82,7 +79,7 @@ const translations = {
         stack_title: "आपका कस्टम AI स्टैक", stack_desc: "ये वो मॉडल हैं जिन्हें आपने बुकमार्क किया है।", disclaimer: "अस्वीकरण: मूल्य निर्धारण तेजी से बदल सकते हैं।",
         unstack: "✕ हटाएं", optimal_pick: "★ सर्वोत्तम विकल्प", empty_stack: "आपका स्टैक अभी खाली है।", tokens: "टोकन", winner_prompt: "आपके प्रॉम्प्ट के लिए समग्र विजेता", cost_sub: "सदस्यता ($10/माह)"
     },
-    },
+
     zh: {
         nav_stack: "我的架构", hero_title: "合适的AI模型.<br>就是现在.", hero_tagline: "描述您的用例，立即发现适合您下一个项目的完美基础模型。",
         search_placeholder: "例如，'编程助手'，'逼真的图像'，'数学'...", btn_search: "查找模型", sticky_search: "新搜索...",
@@ -98,7 +95,6 @@ const translations = {
         comp_title: "模型比较矩阵", comp_est: "估算 Tokens:", th_model: "模型", th_type: "类型", th_spec: "主要特长", th_ctx: "上下文", th_cost: "成本",
         stack_title: "您的自定义 AI 架构", stack_desc: "这些是您已收藏的模型。", disclaimer: "免责声明：定价可能会快速变化。",
         unstack: "✕ 移除", optimal_pick: "★ 最佳选择", empty_stack: "您的架构目前为空。", tokens: "tokens", winner_prompt: "您提示词的最终赢家", cost_sub: "订阅 ($10/月)"
-    },
     },
     ja: {
         nav_stack: "マイスタック", hero_title: "最適なAIモデルを.<br>今すぐに.", hero_tagline: "ユースケースを説明して、最適な基盤モデルをすぐに見つけましょう。",
@@ -116,7 +112,6 @@ const translations = {
         stack_title: "カスタムAIスタック", stack_desc: "ブックマークしたモデルです。", disclaimer: "免責事項：価格は変更される場合があります。",
         unstack: "✕ 削除", optimal_pick: "★ 最適な選択", empty_stack: "スタックは現在空です。", tokens: "トークン", winner_prompt: "あなたのプロンプトの総合勝者", cost_sub: "サブスク ($10/月)"
     },
-    },
     pt: {
         nav_stack: "Minha Stack", hero_title: "O Modelo de IA Certo.<br>Agora Mesmo.", hero_tagline: "Descreva seu caso de uso e descubra o modelo perfeito.",
         search_placeholder: "ex., 'ajuda com código', 'imagens fotorrealistas'...", btn_search: "Buscar Modelo", sticky_search: "Nova busca...",
@@ -133,7 +128,7 @@ const translations = {
         stack_title: "Sua Stack de IA", stack_desc: "Estes são os modelos favoritados.", disclaimer: "Aviso Legal: Preços podem mudar.",
         unstack: "✕ Remover", optimal_pick: "★ Escolha Ideal", empty_stack: "Sua stack está vazia.", tokens: "tokens", winner_prompt: "Vencedor geral para seu prompt", cost_sub: "Assinatura ($10/mês)"
     },
-    },
+
     ru: {
         nav_stack: "Мой Стек", hero_title: "Правильная ИИ Модель.<br>Прямо Сейчас.", hero_tagline: "Опишите вашу задачу и найдите идеальную модель для проекта.",
         search_placeholder: "напр., 'помощь с кодом', 'реалистичные фото'...", btn_search: "Найти Модель", sticky_search: "Новый поиск...",
@@ -150,7 +145,6 @@ const translations = {
         stack_title: "Ваш ИИ Стек", stack_desc: "Это сохраненные модели.", disclaimer: "Отказ от ответственности: Цены могут меняться.",
         unstack: "✕ Убрать", optimal_pick: "★ Лучший Выбор", empty_stack: "Ваш стек пуст.", tokens: "токенов", winner_prompt: "Лучший выбор для вашего запроса", cost_sub: "Подписка ($10/мес)"
     },
-    },
     ar: {
         nav_stack: "مجموعتي", hero_title: "نموذج الذكاء الاصطناعي المناسب.<br>الآن.", hero_tagline: "صِف حالة الاستخدام الخاصة بك واكتشف النموذج المثالي.",
         search_placeholder: "مثال: 'مساعد برمجة', 'صور واقعية'...", btn_search: "البحث عن نموذج", sticky_search: "بحث جديد...",
@@ -166,7 +160,6 @@ const translations = {
         comp_title: "مصفوفة المقارنة", comp_est: "تقدير الرموز:", th_model: "النموذج", th_type: "النوع", th_spec: "التخصص", th_ctx: "السياق", th_cost: "التكلفة",
         stack_title: "مجموعة الذكاء الاصطناعي", stack_desc: "هذه هي النماذج المحفوظة.", disclaimer: "إخلاء المسؤولية: الأسعار قابلة للتغيير.",
         unstack: "✕ إزالة", optimal_pick: "★ الاختيار الأمثل", empty_stack: "مجموعتك فارغة حاليًا.", tokens: "رموز", winner_prompt: "الفائز الشامل لطلبك", cost_sub: "اشتراك ($10/شهر)"
-    }
     }
 };
 
