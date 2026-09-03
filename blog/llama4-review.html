@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llama 4 Scout Review: Meta's Open-Source Powerhouse | ModelFinder</title>
+    <meta name="description" content="Llama 4 Scout brought a 10M-token context window to the open-source world. A thorough developer review of its capabilities, limitations, and best use cases in 2026.">
+    <link rel="stylesheet" href="../shared.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9367095403416389" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav>
+    <a class="logo" href="../index.html">ModelFinder.</a>
+    <div class="nav-right">
+        <div class="nav-links">
+            <a href="../index.html">Tool</a>
+            <a href="index.html" class="active">Blog</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../index.html" class="nav-cta">Find a Model →</a>
+        </div>
+        <button class="dark-toggle" onclick="toggleDark()">🌓</button>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <div class="breadcrumb"><a href="index.html">Blog</a> › Review</div>
+    <div class="article-tag">Review</div>
+    <h1>Llama 4 Scout Review: Meta's Open-Source Powerhouse</h1>
+    <div class="article-meta">
+        <span>📅 June 2026</span>
+        <span>⏱ 6 Min Read</span>
+        <span>✍️ ModelFinder Team</span>
+    </div>
+</div>
+
+<div class="article-body">
+    <p>Meta's Llama 4 Scout is the most significant release in open-source AI history. Not because it's the most capable model in absolute terms — it isn't — but because it delivers a <strong>10-million-token context window</strong> under a permissive commercial license, at a parameter efficiency that makes local deployment genuinely feasible. For developers who previously faced a hard choice between proprietary APIs and compromised open-source alternatives, Scout changes the calculus entirely.</p>
+
+    <h2>Architecture: Why MoE Changes Everything</h2>
+    <p>Scout is a Mixture-of-Experts (MoE) model with 109 billion total parameters, but only 17 billion are active during any single forward pass. This is the critical number for local deployment — it means inference behaves like a 17B model in terms of VRAM usage and speed, while the full 109B parameter set is available for routing specialists to tasks.</p>
+    <p>In practice: the quantised Q4_K_M version of Scout runs at approximately 8–12 tokens per second on an RTX 4090 — fast enough for real-time interactive use, not just batch processing.</p>
+
+    <h2>The 10M Context Window: Real-World Testing</h2>
+    <p>We tested Scout's 10M context with progressively larger documents — from 50K to 500K to 2M tokens. Our findings:</p>
+    <ul>
+        <li><strong>Up to 128K tokens:</strong> Retrieval accuracy is excellent. The model consistently found relevant information across the full context.</li>
+        <li><strong>128K–500K tokens:</strong> Accuracy remains solid. Some evidence of the "lost in the middle" effect, but less severe than comparable models.</li>
+        <li><strong>500K–2M tokens:</strong> Retrieval quality degrades noticeably for specific fact retrieval, but summarisation and thematic understanding remain strong.</li>
+        <li><strong>2M+ tokens:</strong> Running locally is impractical without extreme VRAM configurations. Via cloud inference APIs (Together.ai, Groq), it functions but is slow.</li>
+    </ul>
+    <p>For practical purposes: Scout's sweet spot is 8K–512K token contexts. The 10M headline number is a capability boundary, not a recommended operating range for most use cases.</p>
+
+    <h2>Coding Performance</h2>
+    <p>On HumanEval, Scout scores 79.4% — below GPT-4o (87.2%) and DeepSeek V3 (82.6%), but ahead of older open-source models by a wide margin. More importantly, Scout generates code that compiles correctly on the first attempt at a higher rate than its benchmark score suggests for real-world tasks, where the benchmark's strict format requirements penalise it.</p>
+
+    <h2>Instruction Following</h2>
+    <p>Scout follows complex, multi-part instructions reliably — a known weakness of earlier Llama generations. The IFEval benchmark score of 88.6% puts it in the same tier as Claude 3 Haiku. For structured output tasks (JSON generation, specific format compliance), Scout is significantly more reliable than Llama 3.</p>
+
+    <h2>Licence and Commercial Use</h2>
+    <p>Llama 4 is released under the Llama 4 Community License. Key points for commercial users:</p>
+    <ul>
+        <li>✅ Commercial use allowed for companies with under 700M monthly active users</li>
+        <li>✅ Fine-tuning allowed on your own data</li>
+        <li>✅ Self-hosting and API serving allowed</li>
+        <li>❌ Cannot use Llama outputs to train competing foundation models</li>
+        <li>❌ Requires attribution ("Built with Llama") in products</li>
+    </ul>
+
+    <h2>When to Use Llama 4 Scout</h2>
+    <ul>
+        <li>✅ Privacy-sensitive applications where data cannot leave your infrastructure</li>
+        <li>✅ High-volume workloads where API costs are prohibitive</li>
+        <li>✅ Long-context document processing (up to 512K tokens practically)</li>
+        <li>✅ Building custom fine-tuned models for specific domains</li>
+        <li>❌ Tasks requiring the absolute highest reasoning quality (use o3 or DeepSeek-R2)</li>
+        <li>❌ Multimodal workflows requiring native audio or video understanding</li>
+    </ul>
+
+    <div class="cta-box">
+        <h3>See How Llama 4 Scout Compares</h3>
+        <p>Search ModelFinder for "local" or "open source" to see Llama 4 Scout alongside other free models with a full spec comparison.</p>
+        <a href="../index.html">Compare Open-Source Models →</a>
+    </div>
+</div>
+
+<div class="related-section">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+        <a class="related-card" href="best-free-ai-models.html"><span class="rc-tag">Guide</span><h3>Best Free AI Models You Can Run Locally in 2026</h3></a>
+        <a class="related-card" href="run-ai-locally.html"><span class="rc-tag">Tutorial</span><h3>How to Run AI Locally: Ollama vs LM Studio</h3></a>
+        <a class="related-card" href="rag-vs-long-context.html"><span class="rc-tag">Analysis</span><h3>RAG vs Long Context Windows: Do You Still Need RAG?</h3></a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-main">© 2026 ModelFinder. Minimalist AI Architecture.</div>
+    <div class="footer-links">
+        <a href="../privacypolicy.html">Privacy Policy</a>
+        <a href="index.html">Blog</a>
+        <a href="../contact.html">Contact Us</a>
+    </div>
+    <div class="footer-disclaimer">Disclaimer: License terms are paraphrased. Always consult the full Llama 4 Community License at Meta's official website before commercial deployment.</div>
+</footer>
+<script>
+    if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+    function toggleDark() { document.body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', document.body.classList.contains('dark-mode')); }
+</script>
+</body>
+</html>

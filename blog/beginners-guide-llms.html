@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beginner's Guide to Foundation Models and LLMs | ModelFinder</title>
+    <meta name="description" content="New to AI? This non-technical explainer covers what foundation models are, how LLMs work, and how to start using them for real projects — no PhD required.">
+    <link rel="stylesheet" href="../shared.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9367095403416389" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav>
+    <a class="logo" href="../index.html">ModelFinder.</a>
+    <div class="nav-right">
+        <div class="nav-links">
+            <a href="../index.html">Tool</a>
+            <a href="index.html" class="active">Blog</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../index.html" class="nav-cta">Find a Model →</a>
+        </div>
+        <button class="dark-toggle" onclick="toggleDark()">🌓</button>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <div class="breadcrumb"><a href="index.html">Blog</a> › Beginner Guide</div>
+    <div class="article-tag">Beginner Guide</div>
+    <h1>Beginner's Guide to Foundation Models and LLMs</h1>
+    <div class="article-meta">
+        <span>📅 May 2026</span>
+        <span>⏱ 8 Min Read</span>
+        <span>✍️ ModelFinder Team</span>
+    </div>
+</div>
+
+<div class="article-body">
+    <p>If you've been hearing terms like "LLM," "foundation model," "transformer," and "token" but aren't sure what they actually mean — this guide is for you. We'll explain how modern AI language models work in plain English, and give you the practical knowledge to start using them for real projects without needing a machine learning degree.</p>
+
+    <h2>What Is a Foundation Model?</h2>
+    <p>A <strong>foundation model</strong> is a large AI model trained on a massive amount of data — text, code, images, audio — that can be adapted for a wide variety of specific tasks. The word "foundation" captures the idea that it serves as a base layer you can build on, rather than a single-purpose tool.</p>
+    <p>GPT-4, Claude 3, Gemini, and Llama are all foundation models. You can use them directly via a chat interface, or access them via an API to power your own applications.</p>
+
+    <h2>What Is an LLM?</h2>
+    <p>LLM stands for <strong>Large Language Model</strong>. It's a type of foundation model trained specifically on text data to understand and generate human language. The "large" refers to the number of parameters — the adjustable numerical values inside the model that were tuned during training. Modern LLMs have billions to hundreds of billions of parameters.</p>
+    <p>LLMs are the technology behind ChatGPT, Claude, Gemini, and every modern AI writing, coding, and analysis tool.</p>
+
+    <h2>How Do LLMs Actually Work? (Simplified)</h2>
+    <p>LLMs are trained by showing them enormous amounts of text and teaching them to <strong>predict the next word</strong> in a sequence. Do this billions of times across trillions of words, and the model develops a deep statistical understanding of language, facts, reasoning patterns, and even code.</p>
+    <p>When you ask an LLM a question, it doesn't "look up" the answer — it generates a response one token at a time, with each new token predicted based on everything that came before it. This is why LLMs can sometimes "hallucinate" facts: they're generating plausible-sounding text, not retrieving verified data from a database.</p>
+
+    <h2>Key Terms You Need to Know</h2>
+    <ul>
+        <li><strong>Token:</strong> The basic unit an LLM processes. Roughly 0.75 words. "Hello world" = 2 tokens.</li>
+        <li><strong>Context window:</strong> The maximum amount of text (in tokens) an LLM can process in one go. Think of it as the model's working memory.</li>
+        <li><strong>Prompt:</strong> The instruction or question you give to the model.</li>
+        <li><strong>Inference:</strong> The act of running a model to generate a response (as opposed to training, which is the initial learning process).</li>
+        <li><strong>Parameters:</strong> The billions of numerical values inside a model. More parameters generally means more capability — but also more compute required.</li>
+        <li><strong>Fine-tuning:</strong> Training an existing foundation model further on a smaller, specific dataset to specialise it for a particular task.</li>
+        <li><strong>Quantisation:</strong> A technique to compress a model's parameters so it runs on less hardware, at some cost to quality.</li>
+    </ul>
+
+    <h2>Commercial API vs Open-Source: What's the Difference?</h2>
+    <p><strong>Commercial APIs</strong> (OpenAI, Anthropic, Google) let you access powerful models by sending your data to their servers over the internet. You pay per token. Setup takes minutes. Your data is processed by a third-party.</p>
+    <p><strong>Open-source models</strong> (Llama, Mistral, DeepSeek) are models whose weights are freely available. You download them and run them on your own hardware. No per-token cost, no data leaves your machine, but you need to manage the infrastructure yourself.</p>
+
+    <h2>How to Start Using AI Models Today — No Code Required</h2>
+    <ol>
+        <li><strong>ChatGPT (chat.openai.com)</strong> — The most accessible starting point. Free tier available. GPT-4o access with a Plus subscription ($20/month).</li>
+        <li><strong>Claude.ai</strong> — Anthropic's chat interface. Particularly strong for writing and analysis. Free tier with generous limits.</li>
+        <li><strong>Google AI Studio (aistudio.google.com)</strong> — Free access to Gemini models including the powerful Gemini 1.5 Pro. Ideal for developers.</li>
+        <li><strong>Ollama</strong> — For running models locally. Download at ollama.ai, then run <code>ollama run llama4:scout</code> in your terminal.</li>
+    </ol>
+
+    <h2>What Can You Actually Build?</h2>
+    <p>With access to an LLM API, you can build:</p>
+    <ul>
+        <li>A customer support chatbot for your business</li>
+        <li>A document summarisation tool that processes PDFs</li>
+        <li>An AI writing assistant tailored to your brand's tone</li>
+        <li>A code review bot that comments on pull requests</li>
+        <li>A personal knowledge base you can query in natural language</li>
+    </ul>
+    <p>All of these are achievable with a basic understanding of APIs and a few hundred lines of code. The technology has become accessible enough that a solo developer can build production-quality AI tools in days, not months.</p>
+
+    <div class="cta-box">
+        <h3>Ready to Find Your First AI Model?</h3>
+        <p>ModelFinder helps you discover the right model for your use case — with clear explanations of cost, capability, and where to get started.</p>
+        <a href="../index.html">Find a Model →</a>
+    </div>
+</div>
+
+<div class="related-section">
+    <h2>Continue Learning</h2>
+    <div class="related-grid">
+        <a class="related-card" href="how-to-choose-ai-model.html"><span class="rc-tag">Tutorial</span><h3>How to Choose the Right AI Model for Your Project</h3></a>
+        <a class="related-card" href="ai-context-windows-explained.html"><span class="rc-tag">Explainer</span><h3>AI Context Windows Explained Simply</h3></a>
+        <a class="related-card" href="run-ai-locally.html"><span class="rc-tag">Tutorial</span><h3>How to Run AI Locally: Ollama vs LM Studio</h3></a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-main">© 2026 ModelFinder. Minimalist AI Architecture.</div>
+    <div class="footer-links">
+        <a href="../privacypolicy.html">Privacy Policy</a>
+        <a href="index.html">Blog</a>
+        <a href="../contact.html">Contact Us</a>
+    </div>
+    <div class="footer-disclaimer">Disclaimer: The AI landscape evolves rapidly. Some specific details in this article may become outdated. Always check official documentation for the most current information.</div>
+</footer>
+<script>
+    if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+    function toggleDark() { document.body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', document.body.classList.contains('dark-mode')); }
+</script>
+</body>
+</html>

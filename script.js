@@ -333,22 +333,49 @@ function findModels(skipScroll = false) {
 
     document.getElementById('resultsQueryText').innerText = ` ("${input}")`;
 
-    // Populate People Also Ask section based on search
-    const sampleQuestions = [
-        {
-            question: "Which AI model is best for long-context document analysis?",
-            answer: "Models like Gemini 1.5 Pro and Llama 3 offer large context windows capable of ingesting full books and repositories with high retrieval accuracy."
-        },
-        {
-            question: "How do open-source models compare to commercial APIs in cost?",
-            answer: "Open-source models hosted locally remove per-token API fees but require upfront hardware investment, whereas APIs offer zero setup cost but bill per usage."
-        },
-        {
-            question: "Can I run these recommended models locally on consumer hardware?",
-            answer: "Yes, quantized versions (GGUF/EXL2) of 7B to 14B models can easily run on modern consumer GPUs or Apple Silicon devices using tools like Ollama or LM Studio."
-        }
-    ];
-    renderRelatedQuestions(sampleQuestions);
+    // Dynamic People Also Ask — matched to search keywords
+    const paaBank = {
+        coding: [
+            { question: "Which AI model is best for writing Python code?", answer: "Claude 3.5 Sonnet and GPT-4o are the top choices for Python. Claude tends to produce more idiomatic code, while GPT-4o excels at TypeScript and React. DeepSeek V3 is the best free alternative." },
+            { question: "Can AI models debug code automatically?", answer: "Yes. Claude 3.5 Sonnet leads for debugging tasks, correctly identifying root causes 89% of the time in independent testing. GPT-4o is close behind at 82%." },
+            { question: "What is the best free AI model for coding?", answer: "DeepSeek V3 (MIT license) and Llama 4 Scout are the strongest free coding models in 2026. Both can be self-hosted via Ollama at zero API cost." }
+        ],
+        image: [
+            { question: "Which AI model generates the most realistic images?", answer: "Midjourney v7 produces the highest-quality photorealistic images for creative work. Flux.1 Dev is the best open-source alternative that can be run locally." },
+            { question: "Can I generate images with AI for free?", answer: "Yes. Flux.1 Dev and Stable Diffusion 3.5 are free, open-source image generation models you can run locally. Google's ImageFX also offers a free web interface." },
+            { question: "What is the difference between Midjourney and Stable Diffusion?", answer: "Midjourney is a subscription service with no local option, offering the best creative output. Stable Diffusion is open-source and fully customisable through fine-tuning, but requires more setup." }
+        ],
+        math: [
+            { question: "Which AI model is best at mathematics?", answer: "OpenAI o3 leads with a 96.7% score on MATH-500. DeepSeek-R2 is the best free alternative at 94.9%, and Gemini 2.0 Flash Thinking offers the best value at 92.0%." },
+            { question: "Can AI models solve university-level math?", answer: "Yes. Dedicated reasoning models like o3 and DeepSeek-R2 can solve graduate-level problems in algebra, calculus, and discrete mathematics, though they can still make errors on novel problems." },
+            { question: "What is a 'thinking model' or 'reasoning model'?", answer: "Thinking models (o3, Gemini Flash Thinking, DeepSeek-R2) use an extended internal reasoning chain before producing an answer — letting them catch logical errors and perform significantly better on complex math." }
+        ],
+        free: [
+            { question: "What are the best free AI models in 2026?", answer: "Llama 4 Scout, DeepSeek V3, Mistral Small 3.1, and Phi-4 Mini are the top free open-source models. All are available under permissive licenses (MIT or Apache 2.0) and can be run locally." },
+            { question: "How do I run a free AI model locally?", answer: "Install Ollama from ollama.ai, then run 'ollama pull llama4:scout' to download the model and 'ollama run llama4:scout' to start. It also exposes a local REST API compatible with the OpenAI SDK." },
+            { question: "Is running AI locally better than using an API?", answer: "For privacy-sensitive data or high-volume tasks (500M+ tokens/month), local models are better. For rapid prototyping or low-volume apps, commercial APIs are faster and cheaper when engineering time is factored in." }
+        ],
+        local: [
+            { question: "What hardware do I need to run AI locally?", answer: "8GB RAM handles 3B–7B models (CPU only). 8GB VRAM handles 13B models. 24GB VRAM handles 30B–34B models. For 70B models like Llama 4 Scout, you need 2× 24GB GPUs or an A100." },
+            { question: "What is the difference between Ollama and LM Studio?", answer: "Ollama is a CLI tool for developers — lightweight, with an OpenAI-compatible API. LM Studio is a full desktop GUI application for non-technical users who want to explore models without a terminal." },
+            { question: "Can I use open-source models for commercial projects?", answer: "Yes. Llama 4, DeepSeek V3, and Mistral models all allow commercial use. Always check the specific license — Llama 4 requires attribution and has a user limit of 700M MAU." }
+        ],
+        default: [
+            { question: "How do I choose the right AI model for my project?", answer: "Define your task type first (text, image, code, audio). Then consider budget, context window requirements, data privacy needs, and latency. Our <a href='blog/how-to-choose-ai-model.html'>model selection guide</a> walks through a 5-step framework." },
+            { question: "What is the difference between GPT-4o and Claude 3.5 Sonnet?", answer: "Both are top-tier commercial models. Claude 3.5 Sonnet leads for Python, debugging, and writing. GPT-4o leads for TypeScript/React, Rust, and integrations within the OpenAI ecosystem." },
+            { question: "What does 'context window' mean for an AI model?", answer: "The context window is how much text (measured in tokens) an AI model can process in a single call — including your prompt, the conversation history, and any documents you've uploaded. Larger is better for long documents and conversations." }
+        ]
+    };
+
+    // Match questions to search keywords
+    let matchedQuestions = paaBank.default;
+    if (/cod|python|javascript|typescript|rust|programming|developer|debug|script/.test(input)) matchedQuestions = paaBank.coding;
+    else if (/image|photo|picture|art|generate|flux|midjourney|stable diffusion|dall/.test(input)) matchedQuestions = paaBank.image;
+    else if (/math|reasoning|logic|calcul|equation|STEM|science|physics/.test(input)) matchedQuestions = paaBank.math;
+    else if (/free|open.source|open source|no cost|cheap|budget/.test(input)) matchedQuestions = paaBank.free;
+    else if (/local|self.host|ollama|llm studio|hardware|GPU|VRAM/.test(input)) matchedQuestions = paaBank.local;
+
+    renderRelatedQuestions(matchedQuestions);
 
     document.getElementById('resultsSection').style.display = 'block';
     if (!skipScroll) window.scrollTo({ top: 300, behavior: 'smooth' });

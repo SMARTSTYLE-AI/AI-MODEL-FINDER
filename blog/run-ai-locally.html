@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run AI Locally: Ollama vs LM Studio | ModelFinder</title>
+    <meta name="description" content="A step-by-step comparison of Ollama and LM Studio — the two most popular tools for running large language models locally on your own hardware in 2026.">
+    <link rel="stylesheet" href="../shared.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9367095403416389" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav>
+    <a class="logo" href="../index.html">ModelFinder.</a>
+    <div class="nav-right">
+        <div class="nav-links">
+            <a href="../index.html">Tool</a>
+            <a href="index.html" class="active">Blog</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../index.html" class="nav-cta">Find a Model →</a>
+        </div>
+        <button class="dark-toggle" onclick="toggleDark()">🌓</button>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <div class="breadcrumb"><a href="index.html">Blog</a> › Tutorial</div>
+    <div class="article-tag">Tutorial</div>
+    <h1>How to Run AI Locally: Ollama vs LM Studio</h1>
+    <div class="article-meta">
+        <span>📅 July 2026</span>
+        <span>⏱ 6 Min Read</span>
+        <span>✍️ ModelFinder Team</span>
+    </div>
+</div>
+
+<div class="article-body">
+    <p>Running an AI model on your own hardware has gone from a weekend project for ML engineers to a practical workflow for everyday developers. Two tools dominate this space: <strong>Ollama</strong> and <strong>LM Studio</strong>. Both let you download and run open-source models locally, but they're designed for different audiences and workflows. Here's a clear breakdown of which one you should use.</p>
+
+    <h2>Ollama: Best for Developers and CLI Power Users</h2>
+    <p>Ollama is a lightweight command-line tool that makes managing and running local LLMs feel as simple as using Docker. It wraps the llama.cpp backend (which handles quantisation and efficient CPU/GPU inference) in a clean API and CLI interface.</p>
+
+    <h3>Getting Started with Ollama</h3>
+    <ol>
+        <li>Download from <strong>ollama.ai</strong> and run the installer (available for macOS, Linux, and Windows)</li>
+        <li>Open your terminal and run: <code>ollama pull llama4:scout</code></li>
+        <li>Start chatting immediately: <code>ollama run llama4:scout</code></li>
+        <li>Or call it via API: <code>http://localhost:11434/api/generate</code></li>
+    </ol>
+
+    <p>The REST API is fully compatible with the OpenAI SDK. You can point the OpenAI Python client at <code>http://localhost:11434/v1</code> and your existing code will work with zero modifications — a significant advantage for developers already using OpenAI's API.</p>
+
+    <h3>Ollama Pros</h3>
+    <ul>
+        <li>Zero-config setup — works out of the box</li>
+        <li>OpenAI-compatible REST API for seamless integration</li>
+        <li>Lightweight — no GUI overhead</li>
+        <li>Model management via simple CLI commands (<code>pull</code>, <code>list</code>, <code>rm</code>)</li>
+        <li>Active model library with 100+ pre-configured models</li>
+    </ul>
+
+    <h3>Ollama Cons</h3>
+    <ul>
+        <li>No GUI — not suitable for non-technical users</li>
+        <li>Less control over quantisation format (handles it automatically)</li>
+        <li>Limited advanced inference configuration</li>
+    </ul>
+
+    <h2>LM Studio: Best for Non-Technical Users and Model Exploration</h2>
+    <p>LM Studio is a full desktop application with a graphical interface that makes running local models accessible to anyone — no command line required. It supports downloading models directly from Hugging Face, has a built-in chat interface, and gives you granular control over inference parameters (temperature, top-p, context length, etc.).</p>
+
+    <h3>LM Studio Pros</h3>
+    <ul>
+        <li>Full graphical user interface — no terminal needed</li>
+        <li>Direct Hugging Face model browser built in</li>
+        <li>Fine-grained control over quantisation (choose between Q4, Q5, Q8 formats)</li>
+        <li>Built-in chat UI for testing models</li>
+        <li>Also exposes an OpenAI-compatible local server</li>
+    </ul>
+
+    <h3>LM Studio Cons</h3>
+    <ul>
+        <li>Heavier application (uses more system resources)</li>
+        <li>Slower to get started vs Ollama's three-command setup</li>
+        <li>Not ideal for scripted/automated workflows</li>
+    </ul>
+
+    <h2>Head-to-Head: Which Should You Use?</h2>
+    <table>
+        <thead><tr><th>Use Case</th><th>Recommended Tool</th></tr></thead>
+        <tbody>
+            <tr><td>Building an app with local AI</td><td>Ollama (API compatibility)</td></tr>
+            <tr><td>Non-technical user, just chatting</td><td>LM Studio (GUI)</td></tr>
+            <tr><td>Exploring different models</td><td>LM Studio (Hugging Face browser)</td></tr>
+            <tr><td>Production scripting / automation</td><td>Ollama (CLI + API)</td></tr>
+            <tr><td>Control over quantisation format</td><td>LM Studio</td></tr>
+            <tr><td>Running on a headless Linux server</td><td>Ollama</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Hardware Requirements</h2>
+    <p>Both tools use llama.cpp under the hood, so hardware requirements are the same. A rough guide:</p>
+    <ul>
+        <li><strong>8GB RAM (CPU only):</strong> 3B–7B parameter models (Phi-4 Mini, Mistral 7B Q4)</li>
+        <li><strong>16GB RAM + 8GB VRAM:</strong> 13B–14B models (Llama 3.2, Qwen2.5-14B)</li>
+        <li><strong>24GB VRAM:</strong> Full 30B–34B models (Mistral Small, Qwen3-32B)</li>
+        <li><strong>2× 24GB VRAM or A100:</strong> 70B models (Llama 4 Scout, DeepSeek-V3)</li>
+    </ul>
+
+    <div class="cta-box">
+        <h3>Find the Right Open-Source Model for Your Hardware</h3>
+        <p>Use ModelFinder to find free, locally-runnable models sorted by performance and hardware requirements.</p>
+        <a href="../index.html">Find Local Models →</a>
+    </div>
+</div>
+
+<div class="related-section">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+        <a class="related-card" href="best-free-ai-models.html"><span class="rc-tag">Guide</span><h3>Best Free AI Models You Can Run Locally in 2026</h3></a>
+        <a class="related-card" href="open-source-vs-proprietary.html"><span class="rc-tag">Deep Dive</span><h3>Open Source vs Proprietary AI: The Complete Guide</h3></a>
+        <a class="related-card" href="llama4-review.html"><span class="rc-tag">Review</span><h3>Llama 4 Scout Review: Meta's Open-Source Powerhouse</h3></a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-main">© 2026 ModelFinder. Minimalist AI Architecture.</div>
+    <div class="footer-links">
+        <a href="../privacypolicy.html">Privacy Policy</a>
+        <a href="index.html">Blog</a>
+        <a href="../contact.html">Contact Us</a>
+    </div>
+    <div class="footer-disclaimer">Disclaimer: Software versions and hardware requirements change frequently. Verify current system requirements on each tool's official website.</div>
+</footer>
+<script>
+    if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
+    function toggleDark() { document.body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', document.body.classList.contains('dark-mode')); }
+</script>
+</body>
+</html>
