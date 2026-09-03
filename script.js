@@ -133,6 +133,39 @@ function showPrivacyPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function togglePAA(button) {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+
+    // Close all other open questions
+    document.querySelectorAll('.paa-item').forEach(el => el.classList.remove('active'));
+
+    // Toggle current question
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
+
+function renderRelatedQuestions(questionsList) {
+    const container = document.getElementById('paaContainer');
+    container.innerHTML = ''; // Clear previous questions
+
+    questionsList.forEach(q => {
+        const paaItem = document.createElement('div');
+        paaItem.className = 'paa-item';
+        paaItem.innerHTML = `
+            <button class="paa-question" onclick="togglePAA(this)">
+                <span>${q.question}</span>
+                <span class="paa-icon">▾</span>
+            </button>
+            <div class="paa-answer">
+                <p>${q.answer}</p>
+            </div>
+        `;
+        container.appendChild(paaItem);
+    });
+}
+
 function populateSearch(query) {
     document.getElementById('searchInput').value = query;
     findModels();
@@ -299,6 +332,23 @@ function findModels(skipScroll = false) {
     updateTableCosts();
 
     document.getElementById('resultsQueryText').innerText = ` ("${input}")`;
+
+    // Populate People Also Ask section based on search
+    const sampleQuestions = [
+        {
+            question: "Which AI model is best for long-context document analysis?",
+            answer: "Models like Gemini 1.5 Pro and Llama 3 offer large context windows capable of ingesting full books and repositories with high retrieval accuracy."
+        },
+        {
+            question: "How do open-source models compare to commercial APIs in cost?",
+            answer: "Open-source models hosted locally remove per-token API fees but require upfront hardware investment, whereas APIs offer zero setup cost but bill per usage."
+        },
+        {
+            question: "Can I run these recommended models locally on consumer hardware?",
+            answer: "Yes, quantized versions (GGUF/EXL2) of 7B to 14B models can easily run on modern consumer GPUs or Apple Silicon devices using tools like Ollama or LM Studio."
+        }
+    ];
+    renderRelatedQuestions(sampleQuestions);
 
     document.getElementById('resultsSection').style.display = 'block';
     if (!skipScroll) window.scrollTo({ top: 300, behavior: 'smooth' });

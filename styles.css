@@ -348,3 +348,78 @@ footer { text-align: center; padding: 2rem 5%; color: var(--text-muted); margin-
     margin-bottom: 1.25rem;
     font-size: 1.05rem;
 }
+
+/* --- Related Questions (People Also Ask) Section --- */
+.related-questions-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.related-questions-title {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.paa-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.paa-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.paa-item:hover {
+    border-color: var(--accent);
+}
+
+.paa-question {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.paa-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    color: var(--accent);
+}
+
+.paa-item.active .paa-icon {
+    transform: rotate(180deg);
+}
+
+.paa-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    padding: 0 1.5rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.paa-item.active .paa-answer {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+    max-height: 300px;
+}
