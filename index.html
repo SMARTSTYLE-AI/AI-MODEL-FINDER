@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ModelFinder | AI Model Recommender</title>
     <link rel="stylesheet" href="styles.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9367095403416389"
-         crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
     <nav id="navbar">
         <a class="logo" onclick="location.reload()">ModelFinder.</a>
         <div class="nav-controls">
             <div class="nav-search">
-                <input type="text" id="stickySearchInput" data-i18n-placeholder="sticky_search" placeholder="New search..." onkeydown="if(event.key === 'Enter') { document.getElementById('searchInput').value = this.value; findModels(); }">
+                <input type="text" id="stickySearchInput" data-i18n-placeholder="sticky_search"
+                    placeholder="New search..."
+                    onkeydown="if(event.key === 'Enter') { document.getElementById('searchInput').value = this.value; findModels(); }">
             </div>
             <div class="nav-icons">
-                <button class="icon-btn" onclick="toggleStackView()" id="stackNavBtn" data-i18n="nav_stack">My Stack (0)</button>
+                <button class="icon-btn" onclick="toggleStackView()" id="stackNavBtn" data-i18n="nav_stack">My Stack
+                    (0)</button>
                 <div class="dropdown-wrapper">
-                    <button class="icon-btn" onclick="toggleLanguageMenu()" id="langBtn" title="Change Language">🌐</button>
+                    <button class="icon-btn" onclick="toggleLanguageMenu()" id="langBtn"
+                        title="Change Language">🌐</button>
                     <div class="dropdown-menu" id="langDropdown">
                         <button class="lang-option" onclick="setLanguage('en')">English</button>
                         <button class="lang-option" onclick="setLanguage('es')">Español (Spanish)</button>
@@ -41,13 +47,16 @@
 
     <main class="hero" id="heroSection">
         <h1 data-i18n="hero_title">The Right AI Model.<br>Right Now.</h1>
-        <p class="tagline" data-i18n="hero_tagline">Navigate the complex AI landscape. Describe your use case and instantly discover the perfect foundation model for your next project.</p>
-        
+        <p class="tagline" data-i18n="hero_tagline">Navigate the complex AI landscape. Describe your use case and
+            instantly discover the perfect foundation model for your next project.</p>
+
         <div class="search-container">
-            <input type="text" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="e.g., 'coding helper', 'photorealistic images', 'math'..." onkeydown="if(event.key === 'Enter') findModels()">
+            <input type="text" id="searchInput" data-i18n-placeholder="search_placeholder"
+                placeholder="e.g., 'coding helper', 'photorealistic images', 'math'..."
+                onkeydown="if(event.key === 'Enter') findModels()">
             <button class="btn-search" onclick="findModels()" data-i18n="btn_search">Find Model</button>
         </div>
-        
+
         <div class="filter-pills">
             <button class="pill" onclick="populateSearchKey('pill_1_q')" data-i18n="pill_1">Image Gen</button>
             <button class="pill" onclick="populateSearchKey('pill_2_q')" data-i18n="pill_2">Local & Open Source</button>
@@ -81,17 +90,20 @@
             <div class="feature-card">
                 <div class="feature-icon">🔎</div>
                 <h3>Find the right model</h3>
-                <p>Search by task such as coding, image generation, signal processing, math, or high-volume production needs.</p>
+                <p>Search by task such as coding, image generation, signal processing, math, or high-volume production
+                    needs.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h3>Compare with clarity</h3>
-                <p>See cost, context window, performance fit, and model type in a layout built for product decision-making.</p>
+                <p>See cost, context window, performance fit, and model type in a layout built for product
+                    decision-making.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🧩</div>
                 <h3>Build a custom stack</h3>
-                <p>Bookmark recommended models into your personal AI architecture and keep track of your preferred setup.</p>
+                <p>Bookmark recommended models into your personal AI architecture and keep track of your preferred
+                    setup.</p>
             </div>
         </div>
 
@@ -100,17 +112,20 @@
             <div class="trust-card">
                 <div class="trust-icon">🛡️</div>
                 <h3 data-i18n="trust_1_title">100% Unbiased</h3>
-                <p data-i18n="trust_1_desc">We do not accept sponsored placements. Our recommendations are strictly based on capability, benchmarks, and community consensus.</p>
+                <p data-i18n="trust_1_desc">We do not accept sponsored placements. Our recommendations are strictly
+                    based on capability, benchmarks, and community consensus.</p>
             </div>
             <div class="trust-card">
                 <div class="trust-icon">⚡</div>
                 <h3 data-i18n="trust_2_title">Up-to-Date Database</h3>
-                <p data-i18n="trust_2_desc">The AI space moves fast. We continually update our matrix to include the latest architectural leaps and open-source models.</p>
+                <p data-i18n="trust_2_desc">The AI space moves fast. We continually update our matrix to include the
+                    latest architectural leaps and open-source models.</p>
             </div>
             <div class="trust-card">
                 <div class="trust-icon">🎯</div>
                 <h3 data-i18n="trust_3_title">Use-Case Focused</h3>
-                <p data-i18n="trust_3_desc">We cut through technical jargon to recommend models based purely on what you actually need to build and achieve.</p>
+                <p data-i18n="trust_3_desc">We cut through technical jargon to recommend models based purely on what you
+                    actually need to build and achieve.</p>
             </div>
         </div>
     </section>
@@ -118,9 +133,12 @@
     <section class="error-section section-container" id="errorSection">
         <div class="error-icon">🛑🤖</div>
         <h2 data-i18n="err_title">Hold up. That's above my pay grade.</h2>
-        <p data-i18n="err_desc1">Look, I just <em>recommend</em> the AI models around here; I don't actually do their jobs. My programming strictly forbids me from doing math homework, fixing your code, or passing the Turing test.</p>
-        <p style="color: var(--text-main); font-weight: 600;" data-i18n="err_desc2">But if you want me to find the perfect AI that <em>can</em> do that for you, you're in the right place.</p>
-        
+        <p data-i18n="err_desc1">Look, I just <em>recommend</em> the AI models around here; I don't actually do their
+            jobs. My programming strictly forbids me from doing math homework, fixing your code, or passing the Turing
+            test.</p>
+        <p style="color: var(--text-main); font-weight: 600;" data-i18n="err_desc2">But if you want me to find the
+            perfect AI that <em>can</em> do that for you, you're in the right place.</p>
+
         <div class="suggestion-box">
             <h4 data-i18n="err_sugg">Try searching for parameters like:</h4>
             <ul>
@@ -132,7 +150,9 @@
     </section>
 
     <section class="results section-container" id="resultsSection">
-        <h2 class="results-main-header"><span id="resultsTitleText" data-i18n="results_title">Recommended Models</span> <span id="resultsQueryText" style="color:var(--text-muted); font-size:1.35rem; font-weight:500;"></span></h2>
+        <h2 class="results-main-header"><span id="resultsTitleText" data-i18n="results_title">Recommended Models</span>
+            <span id="resultsQueryText" style="color:var(--text-muted); font-size:1.35rem; font-weight:500;"></span>
+        </h2>
 
         <div class="tier-section">
             <div class="tier-header">
@@ -159,7 +179,8 @@
 
         <div class="comparison-section">
             <div class="comparison-header-box">
-                <div class="comparison-header" style="margin-bottom: 0;" data-i18n="comp_title">Model Comparison Matrix</div>
+                <div class="comparison-header" style="margin-bottom: 0;" data-i18n="comp_title">Model Comparison Matrix
+                </div>
                 <div class="calculator-box">
                     <span data-i18n="comp_est">Estimate Tokens:</span>
                     <input type="number" id="tokenInput" value="1000000" step="100000" oninput="updateTableCosts()">
@@ -190,59 +211,108 @@
 
     <section class="stack-section section-container" id="stackSection">
         <h2 class="results-main-header" data-i18n="stack_title">Your Custom AI Stack</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="stack_desc">These are the models you've bookmarked for your architecture.</p>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;" data-i18n="stack_desc">These are the models you've
+            bookmarked for your architecture.</p>
         <div class="grid" id="stackGrid"></div>
     </section>
 
     <section class="resources-section section-container" id="resourcesSection">
         <h2 class="results-main-header" data-i18n="res_title">AI Resource Hub</h2>
-        <p style="color: var(--text-muted); margin-bottom: 3rem;" data-i18n="res_desc">In-depth guides, model reviews, and architectural documentation.</p>
+        <p style="color: var(--text-muted); margin-bottom: 3rem;" data-i18n="res_desc">In-depth guides, model reviews,
+            and architectural documentation.</p>
 
         <article class="blog-post">
             <div class="blog-meta">Deep Dive • 5 Min Read</div>
             <h3>Understanding Context Windows: The Shift to Million-Token Memory</h3>
-            <p>In the early days of LLMs, context windows were severely limited. A model could remember a few pages of text before "forgetting" the beginning of the conversation. Today, models like Gemini 3.1 Pro and Llama 4 Scout support context windows spanning over a million tokens. But what does this actually mean for enterprise architecture?</p>
-            <p>A "token" roughly equates to a fraction of a word. A 1-million-token window allows developers to upload entire software code repositories, hundreds of PDF documents, or hour-long video transcripts directly into a single prompt. This eliminates the heavy reliance on complex RAG (Retrieval-Augmented Generation) architectures for many standard data-extraction use cases.</p>
-            <p>However, larger context windows come with a trade-off: latency and compute cost. While open-source solutions provide free inference, processing millions of tokens locally requires massive VRAM arrays. Commercial APIs charge per token, meaning a fully loaded 2M-token prompt can become expensive. The optimal strategy is a hybrid approach: use high-context commercial models for initial data structuring, and smaller, highly-tuned open-source MoE (Mixture of Experts) models for high-throughput, repetitive tasks.</p>
+            <p>In the early days of LLMs, context windows were severely limited. A model could remember a few pages of
+                text before "forgetting" the beginning of the conversation. Today, models like Gemini 3.1 Pro and Llama
+                4 Scout support context windows spanning over a million tokens. But what does this actually mean for
+                enterprise architecture?</p>
+            <p>A "token" roughly equates to a fraction of a word. A 1-million-token window allows developers to upload
+                entire software code repositories, hundreds of PDF documents, or hour-long video transcripts directly
+                into a single prompt. This eliminates the heavy reliance on complex RAG (Retrieval-Augmented Generation)
+                architectures for many standard data-extraction use cases.</p>
+            <p>However, larger context windows come with a trade-off: latency and compute cost. While open-source
+                solutions provide free inference, processing millions of tokens locally requires massive VRAM arrays.
+                Commercial APIs charge per token, meaning a fully loaded 2M-token prompt can become expensive. The
+                optimal strategy is a hybrid approach: use high-context commercial models for initial data structuring,
+                and smaller, highly-tuned open-source MoE (Mixture of Experts) models for high-throughput, repetitive
+                tasks.</p>
         </article>
 
         <article class="blog-post">
             <div class="blog-meta">Comparative Guide • 7 Min Read</div>
             <h3>Open-Source vs. Proprietary: The 2026 Landscape</h3>
-            <p>The gap between open-source weights and proprietary APIs has functionally closed for general reasoning tasks. DeepSeek-V4-Pro and Meta's Llama 4 Scout routinely trade blows with commercial counterparts on standard SWE-bench and GPQA evaluations. The decision of which to deploy now hinges on infrastructure rather than raw capability.</p>
-            <p>Proprietary APIs excel in "zero-setup" environments. They offer integrated multimodal capabilities—such as native audio and vision processing—without requiring developers to stitch together multiple distinct local models. They serve as the backbone of rapid prototyping and lightweight startups looking to deploy to production immediately.</p>
-            <p>Conversely, open-source models are the mandatory choice for enterprises dealing with strict data privacy laws. Deploying local models ensures that proprietary codebase data never leaves the internal network. Furthermore, while the upfront cost of GPU hardware is high, the elimination of per-token API fees results in massive operational savings for automated, agentic pipelines.</p>
+            <p>The gap between open-source weights and proprietary APIs has functionally closed for general reasoning
+                tasks. DeepSeek-V4-Pro and Meta's Llama 4 Scout routinely trade blows with commercial counterparts on
+                standard SWE-bench and GPQA evaluations. The decision of which to deploy now hinges on infrastructure
+                rather than raw capability.</p>
+            <p>Proprietary APIs excel in "zero-setup" environments. They offer integrated multimodal capabilities—such
+                as native audio and vision processing—without requiring developers to stitch together multiple distinct
+                local models. They serve as the backbone of rapid prototyping and lightweight startups looking to deploy
+                to production immediately.</p>
+            <p>Conversely, open-source models are the mandatory choice for enterprises dealing with strict data privacy
+                laws. Deploying local models ensures that proprietary codebase data never leaves the internal network.
+                Furthermore, while the upfront cost of GPU hardware is high, the elimination of per-token API fees
+                results in massive operational savings for automated, agentic pipelines.</p>
         </article>
     </section>
 
     <section class="resources-section section-container" id="aboutSection">
         <h2 class="results-main-header">About ModelFinder</h2>
-        
+
         <article class="blog-post">
             <h3>Our Mission</h3>
-            <p>The artificial intelligence landscape is expanding at an unprecedented rate. Every week, new foundation models, open-source weights, and proprietary APIs are released into the wild. For developers, enterprise architects, and creators, determining which model actually suits their specific use case has become a massive bottleneck. ModelFinder was built to solve this exact problem: to cut through the marketing jargon and deliver raw, benchmark-driven recommendations instantly.</p>
-            
-            <p>We believe in a 100% unbiased approach. ModelFinder does not accept sponsored placements, paid tier rankings, or affiliate kickbacks from AI providers. When you search for a model, the engine ranks and scores the database based entirely on technical capabilities, context window sizes, cost-efficiency, and independent community consensus.</p>
-            
-            <p>Designed with a minimalist, developer-first philosophy, our platform strips away the noise. Whether you are looking for a highly capable local model to maintain absolute data privacy, or a multimodal powerhouse to scale a global application, ModelFinder acts as your ultimate, uncompromising architectural directory.</p>
+            <p>The artificial intelligence landscape is expanding at an unprecedented rate. Every week, new foundation
+                models, open-source weights, and proprietary APIs are released into the wild. For developers, enterprise
+                architects, and creators, determining which model actually suits their specific use case has become a
+                massive bottleneck. ModelFinder was built to solve this exact problem: to cut through the marketing
+                jargon and deliver raw, benchmark-driven recommendations instantly.</p>
+
+            <p>We believe in a 100% unbiased approach. ModelFinder does not accept sponsored placements, paid tier
+                rankings, or affiliate kickbacks from AI providers. When you search for a model, the engine ranks and
+                scores the database based entirely on technical capabilities, context window sizes, cost-efficiency, and
+                independent community consensus.</p>
+
+            <p>Designed with a minimalist, developer-first philosophy, our platform strips away the noise. Whether you
+                are looking for a highly capable local model to maintain absolute data privacy, or a multimodal
+                powerhouse to scale a global application, ModelFinder acts as your ultimate, uncompromising
+                architectural directory.</p>
         </article>
     </section>
 
     <section class="resources-section section-container" id="privacySection">
         <h2 class="results-main-header">Privacy Policy</h2>
-        
+
         <article class="blog-post">
             <h3>Data Collection &amp; Usage</h3>
-            <p>At ModelFinder, we prioritize your privacy. Our core recommendation engine operates entirely on the client side. We do not store, track, or harvest the search queries you enter into the directory. Features such as "My Stack" and your language/theme preferences are saved locally directly within your browser's <code>localStorage</code>, ensuring that your architectural choices and preferences never leave your personal device.</p>
-            
+            <p>At ModelFinder, we prioritize your privacy. Our core recommendation engine operates entirely on the
+                client side. We do not store, track, or harvest the search queries you enter into the directory.
+                Features such as "My Stack" and your language/theme preferences are saved locally directly within your
+                browser's <code>localStorage</code>, ensuring that your architectural choices and preferences never
+                leave your personal device.</p>
+
             <h3>Third-Party Advertising and Cookies</h3>
-            <p>To keep ModelFinder free and continuously updated, we use third-party advertising companies, such as Google AdSense, to serve ads when you visit our website. These companies may use cookies (small text files placed on your device) to serve ads based on your prior visits to our website or other websites on the internet. Specifically, Google's use of advertising cookies enables it and its partners to serve targeted ads to our users based on their browsing history.</p>
-            
+            <p>To keep ModelFinder free and continuously updated, we use third-party advertising companies, such as
+                Google AdSense, to serve ads when you visit our website. These companies may use cookies (small text
+                files placed on your device) to serve ads based on your prior visits to our website or other websites on
+                the internet. Specifically, Google's use of advertising cookies enables it and its partners to serve
+                targeted ads to our users based on their browsing history.</p>
+
             <h3>Your Choices &amp; Opting Out</h3>
-            <p>Users have full control over their ad preferences. You may opt out of personalized advertising by visiting the <a href="https://www.google.com/settings/ads" target="_blank" style="color: var(--accent);">Google Ads Settings</a> page. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" style="color: var(--accent);">www.aboutads.info</a>. We encourage you to review these resources if you wish to limit third-party tracking.</p>
-            
+            <p>Users have full control over their ad preferences. You may opt out of personalized advertising by
+                visiting the <a href="https://www.google.com/settings/ads" target="_blank"
+                    style="color: var(--accent);">Google Ads Settings</a> page. Alternatively, you can opt out of a
+                third-party vendor's use of cookies for personalized advertising by visiting <a
+                    href="https://www.aboutads.info" target="_blank"
+                    style="color: var(--accent);">www.aboutads.info</a>. We encourage you to review these resources if
+                you wish to limit third-party tracking.</p>
+
             <h3>Updates to This Policy</h3>
-            <p>As the AI and web technology landscapes evolve, we may occasionally update this Privacy Policy to reflect changes in our practices or regulatory requirements. Any updates will be posted directly to this page. By continuing to use ModelFinder, you consent to the practices outlined in this policy. If you have any questions regarding how your data is handled, please use the Contact Us link in the footer.</p>
+            <p>As the AI and web technology landscapes evolve, we may occasionally update this Privacy Policy to reflect
+                changes in our practices or regulatory requirements. Any updates will be posted directly to this page.
+                By continuing to use ModelFinder, you consent to the practices outlined in this policy. If you have any
+                questions regarding how your data is handled, please use the Contact Us link in the footer.</p>
         </article>
     </section>
 
@@ -251,13 +321,17 @@
         <div class="footer-links">
             <a href="#" onclick="showPrivacyPage(); return false;" data-i18n="footer_privacy">Privacy Policy</a>
             <a href="#" onclick="showAboutPage(); return false;" data-i18n="footer_about">About Us</a>
-            <a href="#" onclick="alert('Contact feature coming soon!'); return false;" data-i18n="footer_contact">Contact Us</a>
+            <a href="#" onclick="alert('Contact feature coming soon!'); return false;"
+                data-i18n="footer_contact">Contact Us</a>
         </div>
-        <div class="footer-disclaimer" data-i18n="disclaimer">Disclaimer: Model availability, pricing, token limits, and capabilities are subject to rapid change. ModelFinder acts as an independent recommendation engine and is not officially affiliated with OpenAI, Anthropic, Google, DeepSeek, or other featured providers.</div>
+        <div class="footer-disclaimer" data-i18n="disclaimer">Disclaimer: Model availability, pricing, token limits, and
+            capabilities are subject to rapid change. ModelFinder acts as an independent recommendation engine and is
+            not officially affiliated with OpenAI, Anthropic, Google, DeepSeek, or other featured providers.</div>
     </footer>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
 
 </body>
+
 </html>
