@@ -111,11 +111,25 @@ function hideAllSections() {
     document.getElementById('resultsSection').style.display = 'none';
     document.getElementById('stackSection').style.display = 'none';
     document.getElementById('resourcesSection').style.display = 'none';
+    document.getElementById('aboutSection').style.display = 'none';
+    document.getElementById('privacySection').style.display = 'none';
 }
 
 function toggleResourcesView() {
     hideAllSections();
     document.getElementById('resourcesSection').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showAboutPage() {
+    hideAllSections();
+    document.getElementById('aboutSection').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showPrivacyPage() {
+    hideAllSections();
+    document.getElementById('privacySection').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
