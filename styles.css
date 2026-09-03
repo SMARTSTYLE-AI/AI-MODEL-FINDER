@@ -146,7 +146,7 @@ nav.scrolled .nav-search { opacity: 1; pointer-events: all; width: 250px; }
     font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 800; line-height: 1.1;
     letter-spacing: -0.04em; margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--text-main) 0%, var(--accent) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: none;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: background 0.3s ease;
 }
 
 .hero p.tagline { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; }
@@ -213,7 +213,7 @@ nav.scrolled .nav-search { opacity: 1; pointer-events: all; width: 250px; }
     background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; cursor: default; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease; overflow: hidden;
 }
 .card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
-.card-content { position: relative; z-index: 2; pointer-events: none; }
+.card-content { position: relative; z-index: 2; pointer-events: auto; }
 
 /* Bookmark Button */
 .bookmark-btn { position: absolute; top: 20px; right: 20px; z-index: 10; background: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; transition: all 0.2s ease; }
@@ -416,10 +416,10 @@ footer { text-align: center; padding: 2rem 5%; color: var(--text-muted); margin-
     color: var(--text-muted);
     line-height: 1.6;
     font-size: 0.95rem;
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--bg-color);
 }
 
 .paa-item.active .paa-answer {
     padding: 0 1.5rem 1.25rem 1.5rem;
-    max-height: 300px;
+    max-height: 600px;
 }
