@@ -1,8 +1,10 @@
 let savedStack = JSON.parse(localStorage.getItem('modelStack')) || [];
+let modelVotes = JSON.parse(localStorage.getItem('modelVotes')) || {};
 let currentTableModels = [];
 let currentBestPaid = null;
 let currentBestFree = null;
 let currentLang = localStorage.getItem('siteLang') || 'en';
+let changelogOpen = false;
 
 function getModelData(model, lang) {
     if (model.i18n && model.i18n[lang]) return model.i18n[lang];
@@ -13,6 +15,17 @@ function getModelData(model, lang) {
 window.onload = () => {
     if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
     setLanguage(currentLang);
+    initChangelog();
+
+    // ── Bookmarkable Comparisons: auto-fire search from URL ?q= param ─────────
+    const urlParams = new URLSearchParams(window.location.search);
+    const qParam = urlParams.get('q');
+    if (qParam && qParam.trim()) {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.value = decodeURIComponent(qParam.trim());
+        // Small delay so DOM is fully ready
+        setTimeout(() => findModels(true), 80);
+    }
 };
 
 window.addEventListener('scroll', () => {
@@ -61,8 +74,15 @@ function toggleLanguageMenu() {
 }
 
 window.addEventListener('click', function (e) {
+    // Close language dropdown
     if (!document.getElementById('langBtn').contains(e.target)) {
         document.getElementById('langDropdown').classList.remove('show');
+    }
+    // Close changelog panel when clicking outside
+    const bellWrapper = document.getElementById('bellWrapper');
+    if (changelogOpen && bellWrapper && !bellWrapper.contains(e.target)) {
+        document.getElementById('changelogPanel').classList.remove('open');
+        changelogOpen = false;
     }
 });
 
@@ -113,6 +133,11 @@ function hideAllSections() {
     document.getElementById('resourcesSection').style.display = 'none';
     document.getElementById('aboutSection').style.display = 'none';
     document.getElementById('privacySection').style.display = 'none';
+    // Close changelog if open
+    if (changelogOpen) {
+        document.getElementById('changelogPanel').classList.remove('open');
+        changelogOpen = false;
+    }
 }
 
 function toggleResourcesView() {
@@ -200,8 +225,22 @@ function renderCard(model, isOptimal, isStackView = false) {
     const freeText = t['badge_free'] ? t['badge_free'].split('/')[0].trim() : 'Free';
     const displayCost = model.costString === 'Free' ? freeText : (model.id === 'midjourney-v6' ? (t['cost_sub'] || model.costString) : model.costString);
 
+    // ── Community Votes ───────────────────────────────────────────────────────
+    const votes = modelVotes[model.id] || { up: 0, down: 0, userVote: null };
+    const totalVotes = votes.up + votes.down;
+    const upPct = totalVotes > 0 ? Math.round((votes.up / totalVotes) * 100) : null;
+    const tallyText = totalVotes > 0 ? `${upPct}% positive · ${totalVotes} vote${totalVotes !== 1 ? 's' : ''}` : 'Be the first to vote';
+    const upClass = votes.userVote === 'up' ? 'voted-up' : '';
+    const downClass = votes.userVote === 'down' ? 'voted-down' : '';
+    const voteBarHTML = `
+        <div class="vote-bar">
+            <button class="vote-btn ${upClass}" onclick="voteModel('${model.id}','up')" title="Helpful">👍 ${votes.up}</button>
+            <button class="vote-btn ${downClass}" onclick="voteModel('${model.id}','down')" title="Not helpful">👎 ${votes.down}</button>
+            <span class="vote-tally">${tallyText}</span>
+        </div>`;
+
     return `
-        <div class="card ${optimalClass}">
+        <div class="card ${optimalClass}" id="card-${model.id}">
             ${actionBtnHTML}
             ${shineHTML}
             ${graffitiHTML}
@@ -215,8 +254,123 @@ function renderCard(model, isOptimal, isStackView = false) {
                 <span>${model.provider}</span>
                 <span><strong>${displayCost}</strong></span>
             </div>
+            ${voteBarHTML}
         </div>
     `;
+}
+
+// ── Community Votes Logic ─────────────────────────────────────────────────────
+function voteModel(modelId, direction) {
+    const votes = modelVotes[modelId] || { up: 0, down: 0, userVote: null };
+    const prev = votes.userVote;
+
+    if (prev === direction) {
+        // Toggle off (undo vote)
+        votes[direction]--;
+        votes.userVote = null;
+    } else {
+        // Remove previous vote if existed
+        if (prev) votes[prev]--;
+        votes[direction]++;
+        votes.userVote = direction;
+    }
+    // Clamp to 0
+    votes.up   = Math.max(0, votes.up);
+    votes.down = Math.max(0, votes.down);
+
+    modelVotes[modelId] = votes;
+    localStorage.setItem('modelVotes', JSON.stringify(modelVotes));
+
+    // Re-render just this card's vote bar in place
+    const card = document.getElementById(`card-${modelId}`);
+    if (!card) return;
+    const existingBar = card.querySelector('.vote-bar');
+    if (existingBar) {
+        const totalVotes = votes.up + votes.down;
+        const upPct = totalVotes > 0 ? Math.round((votes.up / totalVotes) * 100) : null;
+        const tallyText = totalVotes > 0 ? `${upPct}% positive · ${totalVotes} vote${totalVotes !== 1 ? 's' : ''}` : 'Be the first to vote';
+        const upClass = votes.userVote === 'up' ? 'voted-up' : '';
+        const downClass = votes.userVote === 'down' ? 'voted-down' : '';
+        existingBar.innerHTML = `
+            <button class="vote-btn ${upClass}" onclick="voteModel('${modelId}','up')" title="Helpful">👍 ${votes.up}</button>
+            <button class="vote-btn ${downClass}" onclick="voteModel('${modelId}','down')" title="Not helpful">👎 ${votes.down}</button>
+            <span class="vote-tally">${tallyText}</span>`;
+    }
+}
+
+// ── Shareable URL ─────────────────────────────────────────────────────────────
+function shareResults() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (!query) return;
+    const url = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(query)}`;
+    navigator.clipboard.writeText(url).then(() => {
+        showCopyToast('✅ Link copied to clipboard!');
+    }).catch(() => {
+        // Fallback for browsers without clipboard API
+        const el = document.createElement('textarea');
+        el.value = url;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        showCopyToast('✅ Link copied to clipboard!');
+    });
+}
+
+function showCopyToast(msg) {
+    const toast = document.getElementById('copyToast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+// ── Changelog / What's New ────────────────────────────────────────────────────
+function initChangelog() {
+    renderChangelogPanel();
+    // Show notification dot if there are unread new entries
+    const lastSeen = localStorage.getItem('changelogLastSeen') || '';
+    const newCount = changelogEntries.filter(e => e.isNew && e.date > lastSeen).length;
+    const dot = document.getElementById('notifDot');
+    const countEl = document.getElementById('changelogCount');
+    if (newCount > 0) {
+        dot.classList.add('visible');
+        countEl.textContent = newCount;
+        countEl.style.display = 'inline';
+    }
+}
+
+function renderChangelogPanel() {
+    const body = document.getElementById('changelogBody');
+    body.innerHTML = changelogEntries.map(entry => {
+        const labelClass = entry.label === 'NEW MODEL' ? 'label-new'
+                         : entry.label === 'UPDATED'   ? 'label-updated'
+                         : 'label-feature';
+        const newBadge = entry.isNew ? '<span class="badge-new-inline">NEW</span>' : '';
+        const d = new Date(entry.date);
+        const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        return `
+            <div class="changelog-item">
+                <div class="changelog-meta">
+                    <span class="changelog-label ${labelClass}">${entry.label}</span>
+                    <span class="changelog-date">${dateStr}</span>
+                </div>
+                <div class="changelog-item-title">${entry.title}${newBadge}</div>
+                <div class="changelog-item-desc">${entry.desc}</div>
+            </div>`;
+    }).join('');
+}
+
+function toggleChangelog() {
+    const panel = document.getElementById('changelogPanel');
+    changelogOpen = !changelogOpen;
+    panel.classList.toggle('open', changelogOpen);
+    if (changelogOpen) {
+        // Mark as seen — hide dot
+        const today = new Date().toISOString().slice(0, 10);
+        localStorage.setItem('changelogLastSeen', today);
+        document.getElementById('notifDot').classList.remove('visible');
+        document.getElementById('changelogCount').style.display = 'none';
+    }
 }
 
 function updateTableCosts() {
@@ -376,6 +530,10 @@ function findModels(skipScroll = false) {
     else if (/local|self.host|ollama|llm studio|hardware|GPU|VRAM/.test(input)) matchedQuestions = paaBank.local;
 
     renderRelatedQuestions(matchedQuestions);
+
+    // Update the browser URL so it's always shareable
+    const newUrl = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(input)}`;
+    window.history.replaceState(null, '', newUrl);
 
     document.getElementById('resultsSection').style.display = 'block';
     if (!skipScroll) window.scrollTo({ top: 300, behavior: 'smooth' });

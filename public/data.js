@@ -276,5 +276,60 @@ const modelDatabase = [
     }
 ];
 
+// ── What's New Changelog ──────────────────────────────────────────────────────
+// Each entry: { date (ISO), modelId (optional), label, title, desc, isNew }
+// isNew = true  → shows the red NEW badge and counts towards the notification dot
+const changelogEntries = [
+    {
+        date: "2026-09-05",
+        modelId: "claude-fable",
+        label: "NEW MODEL",
+        title: "Claude Fable 5 added",
+        desc: "Anthropic's latest flagship for complex reasoning and agentic workflows is now in the database.",
+        isNew: true
+    },
+    {
+        date: "2026-09-04",
+        modelId: "kimi-k3",
+        label: "NEW MODEL",
+        title: "Kimi K3 added",
+        desc: "Moonshot AI's open-source intelligence powerhouse joins the roster — top benchmark scores on math and logic.",
+        isNew: true
+    },
+    {
+        date: "2026-09-03",
+        modelId: "glm-5",
+        label: "UPDATED",
+        title: "GLM 5.2 data refreshed",
+        desc: "Pricing and context-window figures updated to reflect Z.ai's latest release notes.",
+        isNew: true
+    },
+    {
+        date: "2026-08-30",
+        modelId: "gpt-5-terra",
+        label: "UPDATED",
+        title: "GPT-5.6 Terra pricing updated",
+        desc: "OpenAI dropped input pricing to $4.50 / 1M tokens. Comparison matrix updated.",
+        isNew: false
+    },
+    {
+        date: "2026-08-25",
+        modelId: null,
+        label: "FEATURE",
+        title: "People Also Ask launched",
+        desc: "Search results now show contextual FAQ questions matched to your query.",
+        isNew: false
+    },
+    {
+        date: "2026-08-18",
+        modelId: "deepseek-v4",
+        label: "UPDATED",
+        title: "DeepSeek-V4-Pro context updated",
+        desc: "Context window expanded to 1M tokens. Database entry refreshed with new rationale.",
+        isNew: false
+    }
+];
+
+
 window.translations = translations;
 window.modelDatabase = modelDatabase;

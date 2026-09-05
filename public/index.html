@@ -57,6 +57,19 @@
                         <button class="lang-option" onclick="setLanguage('ar')">العربية (Arabic)</button>
                     </div>
                 </div>
+                <!-- Bell / What's New -->
+                <div class="bell-wrapper" id="bellWrapper">
+                    <button class="bell-btn" onclick="toggleChangelog()" id="bellBtn" title="What's New">
+                        🔔
+                        <span class="notif-dot" id="notifDot"></span>
+                    </button>
+                    <div class="changelog-panel" id="changelogPanel">
+                        <div class="changelog-header">
+                            <h4>🚀 What's New <span class="changelog-count" id="changelogCount" style="display:none"></span></h4>
+                        </div>
+                        <div class="changelog-body" id="changelogBody"></div>
+                    </div>
+                </div>
                 <button class="icon-btn" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌓</button>
             </div>
         </div>
@@ -167,9 +180,15 @@
     </section>
 
     <section class="results section-container" id="resultsSection">
-        <h2 class="results-main-header"><span id="resultsTitleText" data-i18n="results_title">Recommended Models</span>
-            <span id="resultsQueryText" style="color:var(--text-muted); font-size:1.35rem; font-weight:500;"></span>
-        </h2>
+        <div class="results-action-row">
+            <h2 class="results-main-header" style="margin-bottom:0">
+                <span id="resultsTitleText" data-i18n="results_title">Recommended Models</span>
+                <span id="resultsQueryText" style="color:var(--text-muted); font-size:1.35rem; font-weight:500;"></span>
+            </h2>
+            <button class="btn-share" id="shareBtn" onclick="shareResults()" title="Copy shareable link">
+                🔗 Share Results
+            </button>
+        </div>
 
         <div class="tier-section">
             <div class="tier-header">
@@ -345,6 +364,9 @@
             capabilities are subject to rapid change. ModelFinder acts as an independent recommendation engine and is
             not officially affiliated with OpenAI, Anthropic, Google, DeepSeek, or other featured providers.</div>
     </footer>
+
+    <!-- Copy URL toast -->
+    <div class="copy-toast" id="copyToast">✅ Link copied to clipboard!</div>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
