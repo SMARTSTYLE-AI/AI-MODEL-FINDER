@@ -333,3 +333,4 @@ const changelogEntries = [
 
 window.translations = translations;
 window.modelDatabase = modelDatabase;
+window.changelogEntries = changelogEntries;
