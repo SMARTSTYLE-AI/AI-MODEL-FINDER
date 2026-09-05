@@ -158,7 +158,145 @@
                     actually need to build and achieve.</p>
             </div>
         </div>
+
+        <!-- ── Unpack Cards ─────────────────────────────────────────────────── -->
+        <div class="section-tag" style="margin-top: 5rem;">AI Reality Check</div>
+        <h2 class="trust-header">Think you know AI? Click to unpack the truth.</h2>
+        <p style="color:var(--text-muted); max-width:600px; margin: -1rem auto 2.5rem; font-size:0.95rem; line-height:1.7;">
+            Six common assumptions about AI models — flipped. Tap any card to reveal what's really going on under the hood.
+        </p>
+
+        <div class="unpack-grid">
+
+            <!-- Card 1 -->
+            <div class="unpack-card" onclick="this.querySelector('.unpack-inner').classList.toggle('flipped')" role="button" tabindex="0" aria-label="Unpack card: Model Costs">
+                <div class="unpack-inner">
+                    <div class="unpack-front">
+                        <div>
+                            <span class="unpack-category">💰 Model Costs</span>
+                            <h3 class="unpack-question">What's the real price gap between GPT-5.6 Terra and Claude Fable 5 for a 10M-token project?</h3>
+                        </div>
+                        <div class="unpack-cta"><span class="unpack-ping"></span>Click to unpack reality</div>
+                    </div>
+                    <div class="unpack-back">
+                        <div>
+                            <span class="unpack-reality-label">The Reality</span>
+                            <p class="unpack-answer">About $55 difference — but Claude costs more.</p>
+                            <p class="unpack-insight">GPT-5.6 Terra runs ~$45 for 10M output tokens. Claude Fable 5 costs ~$100. However, Claude's 200K context and superior caching means you use far fewer tokens in multi-turn workflows — often ending up cheaper overall.</p>
+                        </div>
+                        <span class="unpack-flip-back">↺ Flip back</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="unpack-card" onclick="this.querySelector('.unpack-inner').classList.toggle('flipped')" role="button" tabindex="0" aria-label="Unpack card: Open Source">
+                <div class="unpack-inner">
+                    <div class="unpack-front">
+                        <div>
+                            <span class="unpack-category">🔓 Open Source</span>
+                            <h3 class="unpack-question">Which "free" open-source model actually costs MORE than a paid API to self-host at production scale?</h3>
+                        </div>
+                        <div class="unpack-cta"><span class="unpack-ping"></span>Click to unpack reality</div>
+                    </div>
+                    <div class="unpack-back">
+                        <div>
+                            <span class="unpack-reality-label">The Reality</span>
+                            <p class="unpack-answer">Llama 4 Scout at 70B+ parameters.</p>
+                            <p class="unpack-insight">Running it at GPT-5.6 Terra throughput levels requires ~$12K/month in GPU hardware. For most teams processing under 500M tokens/month, the commercial API is simply cheaper when engineering time is factored in.</p>
+                        </div>
+                        <span class="unpack-flip-back">↺ Flip back</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="unpack-card" onclick="this.querySelector('.unpack-inner').classList.toggle('flipped')" role="button" tabindex="0" aria-label="Unpack card: AI Reasoning">
+                <div class="unpack-inner">
+                    <div class="unpack-front">
+                        <div>
+                            <span class="unpack-category">🧠 AI Reasoning</span>
+                            <h3 class="unpack-question">Is AI "reasoning" actually thinking — or is something else entirely happening inside the model?</h3>
+                        </div>
+                        <div class="unpack-cta"><span class="unpack-ping"></span>Click to unpack reality</div>
+                    </div>
+                    <div class="unpack-back">
+                        <div>
+                            <span class="unpack-reality-label">The Reality</span>
+                            <p class="unpack-answer">Mostly sophisticated pattern retrieval.</p>
+                            <p class="unpack-insight">Researchers estimate 70–90% of LLM "reasoning" is statistical pattern matching, not true deductive logic. Dedicated reasoning models like o3 and DeepSeek-R2 add explicit chain-of-thought loops — which genuinely closes that gap on hard math and code.</p>
+                        </div>
+                        <span class="unpack-flip-back">↺ Flip back</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="unpack-card" onclick="this.querySelector('.unpack-inner').classList.toggle('flipped')" role="button" tabindex="0" aria-label="Unpack card: Industry">
+                <div class="unpack-inner">
+                    <div class="unpack-front">
+                        <div>
+                            <span class="unpack-category">🏢 Industry</span>
+                            <h3 class="unpack-question">Why did Meta release Llama for free? What's the actual business motive behind a $10B open-source model?</h3>
+                        </div>
+                        <div class="unpack-cta"><span class="unpack-ping"></span>Click to unpack reality</div>
+                    </div>
+                    <div class="unpack-back">
+                        <div>
+                            <span class="unpack-reality-label">The Reality</span>
+                            <p class="unpack-answer">To commoditize the model layer, not compete on it.</p>
+                            <p class="unpack-insight">By making base models free, Meta reduces OpenAI and Anthropic's pricing power and shifts the AI value chain to cloud GPU infrastructure — where Meta's data centers are positioned to profit. Open-source is the weapon, not the product.</p>
+                        </div>
+                        <span class="unpack-flip-back">↺ Flip back</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="unpack-card" onclick="this.querySelector('.unpack-inner').classList.toggle('flipped')" role="button" tabindex="0" aria-label="Unpack card: Context Windows">
+                <div class="unpack-inner">
+                    <div class="unpack-front">
+                        <div>
+                            <span class="unpack-category">📄 Context Windows</span>
+                            <h3 class="unpack-question">A 2M-token context window sounds enormous. How many pages of text is that actually?</h3>
+                        </div>
+                        <div class="unpack-cta"><span class="unpack-ping"></span>Click to unpack reality</div>
+                    </div>
+                    <div class="unpack-back">
+                        <div>
+                            <span class="unpack-reality-label">The Reality</span>
+                            <p class="unpack-answer">Roughly 3,000 pages — about 6 full novels.</p>
+                            <p class="unpack-insight">Gemini 3.1 Pro's 2M-token window can ingest an entire software codebase, 200+ PDFs, or a 2-hour video transcript in a single call. This eliminates complex RAG pipelines for most document-analysis tasks — a genuine architectural leap.</p>
+                        </div>
+                        <span class="unpack-flip-back">↺ Flip back</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="unpack-card" onclick="this.querySelector('.unpack-inner').classList.toggle('flipped')" role="button" tabindex="0" aria-label="Unpack card: Model Choice">
+                <div class="unpack-inner">
+                    <div class="unpack-front">
+                        <div>
+                            <span class="unpack-category">⚡ Model Choice</span>
+                            <h3 class="unpack-question">Claude writes better code than GPT-5 — true or false?</h3>
+                        </div>
+                        <div class="unpack-cta"><span class="unpack-ping"></span>Click to unpack reality</div>
+                    </div>
+                    <div class="unpack-back">
+                        <div>
+                            <span class="unpack-reality-label">The Reality</span>
+                            <p class="unpack-answer">True for Python & architecture. False for TypeScript.</p>
+                            <p class="unpack-insight">Claude Fable 5 leads on Python, multi-file refactoring, and system design. GPT-5.6 Terra leads on TypeScript/React, Rust, and native OpenAI ecosystem integrations. Stack-specific benchmarks differ by up to 18 percentage points — the "best" model is always relative to your tech stack.</p>
+                        </div>
+                        <span class="unpack-flip-back">↺ Flip back</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
+
 
     <section class="error-section section-container" id="errorSection">
         <div class="error-icon">🛑🤖</div>

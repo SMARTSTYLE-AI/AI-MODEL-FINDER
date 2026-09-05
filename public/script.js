@@ -538,3 +538,12 @@ function findModels(skipScroll = false) {
     document.getElementById('resultsSection').style.display = 'block';
     if (!skipScroll) window.scrollTo({ top: 300, behavior: 'smooth' });
 }
+
+// ── Unpack Cards: keyboard accessibility (Enter / Space to flip) ──────────────
+document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('unpack-card')) {
+        e.preventDefault();
+        const inner = e.target.querySelector('.unpack-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+});

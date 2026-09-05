@@ -674,3 +674,185 @@ footer { text-align: center; padding: 2rem 5%; color: var(--text-muted); margin-
     .changelog-panel { width: calc(100vw - 2rem); right: -1rem; }
     .results-action-row { flex-direction: column; align-items: flex-start; }
 }
+
+/* ── Unpack Cards (3D Flip) ──────────────────────────────────────────────────── */
+.unpack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+    text-align: left;
+}
+
+/* Outer wrapper: holds perspective */
+.unpack-card {
+    perspective: 1100px;
+    height: 240px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 18px;
+}
+
+/* Keep keyboard focus visible accessibly */
+.unpack-card:focus-visible { box-shadow: 0 0 0 3px var(--accent); border-radius: 18px; }
+
+/* Inner rotatable container */
+.unpack-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.52s cubic-bezier(0.4, 0.2, 0.2, 1);
+    border-radius: 18px;
+}
+
+.unpack-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Shared face styles */
+.unpack-front,
+.unpack-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 18px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* ── Front face ── */
+.unpack-front {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-subtle);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unpack-card:hover .unpack-front {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
+}
+
+.unpack-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: rgba(67, 56, 202, 0.08);
+    border: 1px solid rgba(67, 56, 202, 0.15);
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.9rem;
+}
+
+body.dark-mode .unpack-category {
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+.unpack-question {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Pulsing dot + CTA row */
+.unpack-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+.unpack-ping {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: unpackPing 1.8s ease-in-out infinite;
+}
+
+@keyframes unpackPing {
+    0%, 100% { transform: scale(1);   opacity: 1;   }
+    50%        { transform: scale(1.5); opacity: 0.5; }
+}
+
+/* ── Back face ── */
+.unpack-back {
+    background: var(--optimal-bg);
+    border: 1.5px solid var(--accent);
+    box-shadow: 0 12px 40px rgba(67, 56, 202, 0.18);
+    transform: rotateY(180deg);
+}
+
+body.dark-mode .unpack-back {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.unpack-reality-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.55rem;
+}
+
+.unpack-answer {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 0.6rem;
+    line-height: 1.4;
+}
+
+.unpack-insight {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.unpack-flip-back {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    opacity: 0.75;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* ── Responsive: stack to 2-col then 1-col on small screens ── */
+@media (max-width: 768px) {
+    .unpack-card { height: 260px; }
+}
+
+@media (max-width: 480px) {
+    .unpack-grid { grid-template-columns: 1fr; }
+    .unpack-card { height: auto; min-height: 220px; }
+    .unpack-front, .unpack-back { position: relative; }
+    /* On very small screens, fall back to a simpler toggle */
+    .unpack-inner { transform-style: flat; transition: none; }
+    .unpack-inner.flipped .unpack-front  { display: none; }
+    .unpack-inner.flipped .unpack-back   { display: flex; transform: none; }
+    .unpack-inner:not(.flipped) .unpack-back  { display: none; }
+}
