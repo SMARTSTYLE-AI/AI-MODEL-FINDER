@@ -38,7 +38,9 @@
                     onkeydown="if(event.key === 'Enter') { document.getElementById('searchInput').value = this.value; findModels(); }">
             </div>
             <div class="nav-icons">
+                <a class="icon-btn" href="about.html" style="text-decoration:none;">About</a>
                 <a class="icon-btn" href="blog/index.html" style="text-decoration:none;">Blog</a>
+                <a class="icon-btn" href="contact.html" style="text-decoration:none;">Contact</a>
                 <button class="icon-btn" onclick="toggleStackView()" id="stackNavBtn" data-i18n="nav_stack">My Stack
                     (0)</button>
                 <div class="dropdown-wrapper">
@@ -493,15 +495,19 @@
     <footer>
         <div class="footer-main">&copy; 2026 ModelFinder. Minimalist AI Architecture.</div>
         <div class="footer-links">
-            <a href="#" onclick="showPrivacyPage(); return false;" data-i18n="footer_privacy">Privacy Policy</a>
+            <a href="index.html" data-i18n="footer_home">Home</a>
+            <a href="about.html" data-i18n="footer_about">About Us</a>
             <a href="blog/index.html" data-i18n="footer_blog">Blog</a>
-            <a href="#" onclick="showAboutPage(); return false;" data-i18n="footer_about">About Us</a>
             <a href="contact.html" data-i18n="footer_contact">Contact Us</a>
+            <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+            <a href="terms.html" data-i18n="footer_terms">Terms of Service</a>
+            <a href="disclaimer.html" data-i18n="footer_disclaimer">Disclaimer</a>
         </div>
         <div class="footer-disclaimer" data-i18n="disclaimer">Disclaimer: Model availability, pricing, token limits, and
             capabilities are subject to rapid change. ModelFinder acts as an independent recommendation engine and is
             not officially affiliated with OpenAI, Anthropic, Google, DeepSeek, or other featured providers.</div>
     </footer>
+
 
     <!-- Copy URL toast -->
     <div class="copy-toast" id="copyToast">✅ Link copied to clipboard!</div>
