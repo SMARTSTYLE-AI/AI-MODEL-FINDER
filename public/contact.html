@@ -104,12 +104,20 @@
             if (res.ok) {
                 document.getElementById('successMsg').style.display = 'block';
                 form.reset();
+                // ── GA4: contact_form_submit key event ──
+                if (typeof gtag === 'function') {
+                    gtag('event', 'contact_form_submit', {
+                        method: 'contact_page'
+                    });
+                }
             } else {
                 alert('Something went wrong. Please try again.');
             }
         }).catch(() => alert('Network error. Please try again.'));
     }
 </script>
+<script src="analytics.js"></script>
 
 </body>
 </html>
+

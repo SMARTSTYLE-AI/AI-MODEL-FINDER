@@ -547,3 +547,51 @@ document.addEventListener('keydown', function (e) {
         if (inner) inner.classList.toggle('flipped');
     }
 });
+
+// ── GA4 Key Events ────────────────────────────────────────────────────────────
+
+// 1. unpack_card_flip — fires each time a curiosity card is clicked/flipped
+document.querySelectorAll('.unpack-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+        const category = card.querySelector('.unpack-category')?.innerText?.trim() || 'Unknown';
+        const question = (card.querySelector('.unpack-question')?.innerText?.trim() || 'Unknown').substring(0, 120);
+        if (typeof gtag === 'function') {
+            gtag('event', 'unpack_card_flip', {
+                card_category: category,
+                card_question: question
+            });
+        }
+    });
+});
+
+// 2. content_scroll_75 — fires once per pageview when user reads 75%+ of page
+(function () {
+    let fired75 = false;
+    window.addEventListener('scroll', function () {
+        if (fired75) return;
+        const pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+        if (pct >= 75) {
+            fired75 = true;
+            if (typeof gtag === 'function') {
+                gtag('event', 'content_scroll_75', {
+                    page_location: window.location.href
+                });
+            }
+        }
+    }, { passive: true });
+}());
+
+// 3. outbound_click — fires when a user follows an external link
+document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('http') && !href.includes(window.location.hostname)) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'outbound_click', {
+                link_url: href,
+                link_text: (link.innerText || '').trim().substring(0, 100)
+            });
+        }
+    }
+});
