@@ -66,10 +66,10 @@
             </div>
 
             <button type="submit" class="submit-btn">Send Message →</button>
-            <div class="success-msg" id="successMsg">✓ Message sent! We'll get back to you within 48 hours.</div>
         </form>
     </div>
 </main>
+
 
 <footer>
     <div class="footer-main">&copy; 2026 ModelFinder. Minimalist AI Architecture.</div>
@@ -94,27 +94,38 @@
     }
     function handleSubmit(e) {
         e.preventDefault();
+        const btn  = document.querySelector('.submit-btn');
         const form = document.getElementById('contactForm');
         const data = new FormData(form);
+
+        // Show sending state
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
         fetch(form.action, {
             method: 'POST',
             body: data,
             headers: { 'Accept': 'application/json' }
         }).then(res => {
             if (res.ok) {
-                document.getElementById('successMsg').style.display = 'block';
-                form.reset();
                 // ── GA4: contact_form_submit key event ──
                 if (typeof gtag === 'function') {
-                    gtag('event', 'contact_form_submit', {
-                        method: 'contact_page'
-                    });
+                    gtag('event', 'contact_form_submit', { method: 'contact_page' });
                 }
+                // Redirect to dedicated thank-you page
+                window.location.href = 'thank-you.html';
             } else {
+                btn.textContent = 'Send Message →';
+                btn.disabled = false;
                 alert('Something went wrong. Please try again.');
             }
-        }).catch(() => alert('Network error. Please try again.'));
+        }).catch(() => {
+            btn.textContent = 'Send Message →';
+            btn.disabled = false;
+            alert('Network error. Please try again.');
+        });
     }
+
 </script>
 <script src="analytics.js"></script>
 
